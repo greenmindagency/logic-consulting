@@ -706,13 +706,27 @@ blockquote p {margin:1rem 0}
 }
 
 
-.dropdown-menu li:not(:last-child) {
+.dropdown-menu li {
     border-bottom: 1px solid #f4f4f4;  /* Applies border to all except the last item */
     padding: 5px 5px;
 }
-.dropdown-menu li:last-child {
-    padding: 5px 5px;
+
+/* Make the dropdown menu a flex container */
+.navbar-nav .dropdown-menu {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px; /* or whatever fits your layout */
+  padding: 1rem;
 }
+
+/* Each item should take 1/3 of the container */
+.navbar-nav .dropdown-menu > li {
+  width: 33.33%;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+
 
 /* styling the dropdown */
 
