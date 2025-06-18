@@ -702,31 +702,16 @@ blockquote p {margin:1rem 0}
 .dropdown-menu {
     border-radius: 0 !important;  /* Removes curvy edges, making them sharp */
     box-shadow: none !important; /* Removes any shadow for a flat look */
-    border: 0px;     /* Optional: Add a subtle border for definition */
-    opacity: 0;      /* Start hidden for fade effect */
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    border: 0px      /* Optional: Add a subtle border for definition */
 }
 
 
-.dropdown-menu li {
-    border-bottom: 1px solid #f4f4f4;  /* Add border to all items */
+.dropdown-menu li:not(:last-child) {
+    border-bottom: 1px solid #f4f4f4;  /* Applies border to all except the last item */
     padding: 5px 5px;
 }
-
-@media (min-width: 992px) {
-  .dropdown-menu {
-    display: grid;                   /* Arrange submenu items in columns */
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    column-gap: 1rem;
-  }
-  .navbar .dropdown:hover > .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-
-  }
+.dropdown-menu li:last-child {
+    padding: 5px 5px;
 }
 
 /* styling the dropdown */
@@ -740,7 +725,7 @@ blockquote p {margin:1rem 0}
 	/* CSS for hover dropdown on desktop */
 @media (min-width: 992px) {
   .navbar .dropdown:hover > .dropdown-menu {
-    display: grid;
+    display: block;
   }
 }
 
@@ -750,9 +735,6 @@ blockquote p {margin:1rem 0}
     display: none;
   }
   .navbar .dropdown.show .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
     display: block;
   }
 }
