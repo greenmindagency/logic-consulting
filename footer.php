@@ -713,37 +713,6 @@ blockquote p {margin:1rem 0}
 
 
 
-
-/* Target only the dropdowns */
-.navbar-nav .dropdown-menu {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 600px; /* Adjust based on your site width */
-  padding: 1rem;
-  column-gap: 0; /* Optional: adjust spacing between columns */
-  row-gap: 0.5rem; /* Optional: vertical spacing */
-}
-
-/* Make each item 1/3 width */
-.navbar-nav .dropdown-menu > li {
-  width: 33.33%;
-  padding: 0.3rem 1rem;
-  box-sizing: border-box;
-}
-
-/* Optional: make sure the links look clean */
-.navbar-nav .dropdown-menu > li > a {
-  white-space: normal;
-  display: block;
-  width: 100%;
-  line-height: 1.3;
-  padding: 0.25rem 0;
-}
-
-
-
-
-
 /* styling the dropdown */
 
 /* card styling */	
