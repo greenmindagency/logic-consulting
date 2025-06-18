@@ -2,7 +2,7 @@
 // This fxn allows plugins to insert themselves/scripts/css/files (right here) into the footer of your website. 
 // Removing this fxn call will disable all kinds of plugins. 
 // Move it if you like, but keep it around.
-?> 
+?>
 
 
       
@@ -223,14 +223,21 @@ if ( !empty($tags) && !is_wp_error($tags) ) {
 <style>
 
 
-body { <?php
+body { <?php 
+if (is_front_page()) { // Check if it's the front page
     $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
 
-    if ($menu_color == 'transparent') {
-        echo '';
-    } else {
-        echo 'padding-top: 70px;';
-    }
+    if ($menu_color == 'black') { 
+        echo 'padding-top: 70px;'; // Example for black background
+    } elseif ($menu_color == 'transparent') { 
+        echo ''; // Example for transparent background
+    } else { 
+        echo 'padding-top: 70px;'; // Default for white or other
+    } 
+} else { 
+    // For all other pages
+    echo 'padding-top: 70px;'; 
+}
 ?> font-family: "Montserrat", serif !important;}
 
 
@@ -1302,10 +1309,10 @@ jQuery(document).ready(function($) {
 
 /** add the highlight effect for transperent nav bar */
 
-<?php
+<?php if (is_front_page()) { 
     $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
 
-    if ($menu_color == 'transparent') {
+    if ($menu_color == 'transparent') { 
 ?>
 
 
@@ -1376,6 +1383,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <?php 
     } // End of 'transparent' condition
+} // End of 'is_front_page' condition
 ?>
 
 /** add the highlight effect for transperent nav bar */
