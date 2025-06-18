@@ -100,23 +100,18 @@ $bodycode = get_sub_field('body_code');
 	
         
      
-<nav class="navbar fixed-top navbar-expand-lg 
+<nav class="navbar fixed-top navbar-expand-lg
 
-<?php 
-if (is_front_page()) { // Check if it's the front page
+<?php
     $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
 
-    if ($menu_color == 'black') { 
+    if ($menu_color == 'black') {
         echo 'bg-dark text-white'; // Example for black background
-    } elseif ($menu_color == 'transparent') { 
+    } elseif ($menu_color == 'transparent') {
         echo 'bg-transparent text-white'; // Example for transparent background
-    } else { 
+    } else {
         echo 'shadow bg-light'; // Default for white or other
-    } 
-} else { 
-    // For all other pages
-    echo 'shadow bg-light'; 
-}
+    }
 ?>">
 
 	  
@@ -157,29 +152,18 @@ if (!empty($image) && isset($image['sizes'][$size])) {
 
 
 
-<?php 
-if (is_front_page()) { // Check if it's the front page
+<?php
     $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
 
-    if ($menu_color == 'black') {  ?>
-          
-<img class="logo d-inline-block align-top" src="<?php echo $logolight['sizes']['medium']; ?>" width="<?php echo esc_attr($new_width); ?>" height="<?php echo esc_attr($fixed_height); ?>" title="<?php bloginfo('name'); ?> Logo" alt="<?php bloginfo('name'); ?> Logo" />
+    if ($menu_color == 'black' || $menu_color == 'transparent') {  ?>
 
-  <?php   } elseif ($menu_color == 'transparent') {  ?>
-  
-  <img class="logo d-inline-block align-top" src="<?php echo $logolight['sizes']['medium']; ?>" width="<?php echo esc_attr($new_width); ?>" height="<?php echo esc_attr($fixed_height); ?>" title="<?php bloginfo('name'); ?> Logo" alt="<?php bloginfo('name'); ?> Logo" />
-       
- <?php    } else {  ?>
- 
- <img class="logo d-inline-block align-top" src="<?php echo $logoblack['sizes']['medium']; ?>" width="<?php echo esc_attr($new_width); ?>" height="<?php echo esc_attr($fixed_height); ?>" title="<?php bloginfo('name'); ?> Logo" alt="<?php bloginfo('name'); ?> Logo" />
- 
-        
-  <?php   }  ?>
-<?php  } else {  ?>
-    
-	 <img class="logo d-inline-block align-top" src="<?php echo $logoblack['sizes']['medium']; ?>" width="<?php echo esc_attr($new_width); ?>" height="<?php echo esc_attr($fixed_height); ?>" title="<?php bloginfo('name'); ?> Logo" alt="<?php bloginfo('name'); ?> Logo" />
-	 
-<?php  }  ?>
+        <img class="logo d-inline-block align-top" src="<?php echo $logolight['sizes']['medium']; ?>" width="<?php echo esc_attr($new_width); ?>" height="<?php echo esc_attr($fixed_height); ?>" title="<?php bloginfo('name'); ?> Logo" alt="<?php bloginfo('name'); ?> Logo" />
+
+<?php    } else {  ?>
+
+        <img class="logo d-inline-block align-top" src="<?php echo $logoblack['sizes']['medium']; ?>" width="<?php echo esc_attr($new_width); ?>" height="<?php echo esc_attr($fixed_height); ?>" title="<?php bloginfo('name'); ?> Logo" alt="<?php bloginfo('name'); ?> Logo" />
+
+<?php    }  ?>
 
 
 
