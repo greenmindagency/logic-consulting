@@ -706,12 +706,17 @@ blockquote p {margin:1rem 0}
 }
 
 
-.dropdown-menu li:not(:last-child) {
-    border-bottom: 1px solid #f4f4f4;  /* Applies border to all except the last item */
+.dropdown-menu li {
+    border-bottom: 1px solid #f4f4f4;  /* Add border to all items */
     padding: 5px 5px;
 }
-.dropdown-menu li:last-child {
-    padding: 5px 5px;
+
+@media (min-width: 992px) {
+  .dropdown-menu {
+    display: grid;                   /* Arrange submenu items in explicit columns */
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+  }
 }
 
 @media (min-width: 992px) {
