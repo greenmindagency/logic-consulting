@@ -100,18 +100,23 @@ $bodycode = get_sub_field('body_code');
 	
         
      
-<nav class="navbar fixed-top navbar-expand-lg
+<nav class="navbar fixed-top navbar-expand-lg 
 
-<?php
-    $menu_color = get_field('menu_color', 2); // Use global setting for all pages
+<?php 
+if (is_front_page()) { // Check if it's the front page
+    $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
 
-    if ($menu_color == 'black') {
-        echo 'bg-dark text-white';
-    } elseif ($menu_color == 'transparent') {
-        echo 'bg-transparent text-white';
-    } else {
-        echo 'shadow bg-light';
-    }
+    if ($menu_color == 'black') { 
+        echo 'bg-dark text-white'; // Example for black background
+    } elseif ($menu_color == 'transparent') { 
+        echo 'bg-transparent text-white'; // Example for transparent background
+    } else { 
+        echo 'shadow bg-light'; // Default for white or other
+    } 
+} else { 
+    // For all other pages
+    echo 'shadow bg-light'; 
+}
 ?>">
 
 	  
