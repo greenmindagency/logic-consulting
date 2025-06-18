@@ -713,6 +713,23 @@ blockquote p {margin:1rem 0}
 
 
 
+
+/* Only the first visible dropdown inside the navbar */
+.navbar-nav .dropdown-menu.show:first-of-type {
+  display: flex !important;
+  flex-wrap: wrap;
+  width: 600px;
+  padding: 1rem;
+}
+
+.navbar-nav .dropdown-menu.show:first-of-type > .nav-item {
+  width: 33.33%;
+  padding: 0.25rem 1rem;
+  box-sizing: border-box;
+}
+
+
+
 /* styling the dropdown */
 
 /* card styling */	
