@@ -1307,10 +1307,12 @@ jQuery(document).ready(function($) {
   
 /** Isotope Filtering with Active Button Styling */
 
-/** add the highlight effect for transperent nav bar */
+/*--------------------------------------------------------------
+# Transparent Navbar Highlight
+--------------------------------------------------------------*/
 
-<?php if (is_front_page()) { 
-    $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
+<?php 
+    $menu_color = get_field('menu_color', 2); // Retrieve the value of the 'menu_color' field
 
     if ($menu_color == 'transparent') { 
 ?>
@@ -1319,6 +1321,7 @@ jQuery(document).ready(function($) {
 document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.querySelector('.navbar');
     const logo = document.querySelector('.logo');
+    const collapse = document.getElementById('navbarSupportedContent');
 
     // Define the URLs directly using PHP
     const lightLogoSrc = "<?php $logolight = get_field('logo_light', 2); echo $logolight['sizes']['medium']; ?>";
@@ -1334,9 +1337,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add smooth transition for navbar only
     navbar.style.transition = 'background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out';
 
-    // Function to switch navbar and logo styles on scroll
+    // Track hover state
+    let navbarHovered = false;
+
+    // Function to switch navbar and logo styles on scroll or hover state
     function handleScroll() {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 50 || navbarHovered || collapse.classList.contains('show')) {
             navbar.classList.add('shadow', 'bg-light');
             navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
             if (logo.src !== blackLogoImg.src) {
@@ -1353,6 +1359,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to handle hover effect
     function handleMouseEnter() {
+        navbarHovered = true;
         navbar.classList.add('shadow', 'bg-light');
         navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
         if (logo.src !== blackLogoImg.src) {
@@ -1361,7 +1368,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function handleMouseLeave() {
-        if (window.scrollY <= 50) {
+
+        navbarHovered = false;
+
+        if (window.scrollY <= 50 && !collapse.classList.contains('show')) {
             navbar.classList.remove('shadow', 'bg-light');
             navbar.classList.add('text-white', 'bg-transparent');
             if (logo.src !== lightLogoImg.src) {
@@ -1376,6 +1386,41 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach hover event listeners
     navbar.addEventListener('mouseenter', handleMouseEnter);
     navbar.addEventListener('mouseleave', handleMouseLeave);
+
+
+    // Ensure dropdowns also toggle the navbar style
+    const dropdowns = document.querySelectorAll('.navbar .dropdown');
+    dropdowns.forEach(function(dd) {
+        dd.addEventListener('show.bs.dropdown', handleMouseEnter);
+        dd.addEventListener('hide.bs.dropdown', handleMouseLeave);
+    });
+
+
+    // Adjust styles when the mobile menu is opened or closed
+    if (collapse) {
+        collapse.addEventListener('show.bs.collapse', function () {
+            navbar.classList.add('shadow', 'bg-light');
+            navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
+            if (logo.src !== blackLogoImg.src) {
+                logo.src = blackLogoImg.src;
+            }
+        });
+
+        collapse.addEventListener('hide.bs.collapse', function () {
+            if (window.scrollY <= 50) {
+                navbar.classList.remove('shadow', 'bg-light');
+                navbar.classList.add('text-white', 'bg-transparent');
+                if (logo.src !== lightLogoImg.src) {
+                    logo.src = lightLogoImg.src;
+                }
+            }
+        });
+    }
+
+
+    // Initialize state based on current scroll position
+    handleScroll();
+
 });
 
 
@@ -1383,10 +1428,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <?php 
     } // End of 'transparent' condition
-} // End of 'is_front_page' condition
+
 ?>
 
-/** add the highlight effect for transperent nav bar */
+/*--------------------------------------------------------------
+# Transparent Navbar Highlight
+--------------------------------------------------------------*/
 
 
 /** submenu items open when hover */

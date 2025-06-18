@@ -103,19 +103,16 @@ $bodycode = get_sub_field('body_code');
 <nav class="navbar fixed-top navbar-expand-lg 
 
 <?php 
-if (is_front_page()) { // Check if it's the front page
-    $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
+$menu_color = get_field('menu_color', 2); // Get from current page/post
 
-    if ($menu_color == 'black') { 
-        echo 'bg-dark text-white'; // Example for black background
-    } elseif ($menu_color == 'transparent') { 
-        echo 'bg-transparent text-white'; // Example for transparent background
-    } else { 
-        echo 'shadow bg-light'; // Default for white or other
-    } 
+if ($menu_color == 'black') { 
+    echo 'menu-dynamic bg-dark text-white';
+} elseif ($menu_color == 'transparent') { 
+    echo 'menu-dynamic bg-transparent text-white';
+} elseif ($menu_color == 'white') { 
+    echo 'menu-dynamic shadow bg-light';
 } else { 
-    // For all other pages
-    echo 'shadow bg-light'; 
+    echo '';
 }
 ?>">
 
@@ -126,7 +123,7 @@ if (is_front_page()) { // Check if it's the front page
 	  
 	  
   <div class="container-fluid">
-   <a class="me-5 navbar-brand my-1" href="<?php bloginfo( 'url' ); ?>">
+   <a class="me-5 navbar-brand my-2" href="<?php bloginfo( 'url' ); ?>">
    
    
 <?php 
@@ -144,7 +141,7 @@ if (!empty($image) && isset($image['sizes'][$size])) {
     $image_url = $image['sizes'][$size];
     $width = isset($image['sizes'][$size . '-width']) ? $image['sizes'][$size . '-width'] : null;
     $height = isset($image['sizes'][$size . '-height']) ? $image['sizes'][$size . '-height'] : null;
-    $fixed_height = 50;
+    $fixed_height = 40;
 
     // Calculate proportional width if dimensions are valid
     if ($width && $height) {
@@ -158,8 +155,8 @@ if (!empty($image) && isset($image['sizes'][$size])) {
 
 
 <?php 
-if (is_front_page()) { // Check if it's the front page
-    $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
+
+    $menu_color = get_field('menu_color', 2); // Retrieve the value of the 'menu_color' field
 
     if ($menu_color == 'black') {  ?>
           
@@ -175,11 +172,7 @@ if (is_front_page()) { // Check if it's the front page
  
         
   <?php   }  ?>
-<?php  } else {  ?>
-    
-	 <img class="logo d-inline-block align-top" src="<?php echo $logoblack['sizes']['medium']; ?>" width="<?php echo esc_attr($new_width); ?>" height="<?php echo esc_attr($fixed_height); ?>" title="<?php bloginfo('name'); ?> Logo" alt="<?php bloginfo('name'); ?> Logo" />
-	 
-<?php  }  ?>
+
 
 
 
@@ -210,13 +203,16 @@ if (is_front_page()) { // Check if it's the front page
       <div class="d-flex">
         
       
-<form class="d-flex form-group search" method="get" action="<?php echo home_url(); ?>">
-        <input  aria-label="Search" class="form-control" type="search" placeholder="Search" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search For', 'label' ) ?>" />
-      <button class="me-4 btn btn-secondary" type="submit" aria-label="submit">
-        <i class="text-white fa fa-search"></i>
-     
-      </button>
-        </form>
+<form class="is-search-form is-ajax-search me-3" action="<?php echo esc_url(home_url('/')); ?>" method="get" role="search">
+    <div class="input-group">
+        <input type="search" name="s" class="form-control  p-1 ps-3 is-search-input" placeholder="Search" autocomplete="on">
+        <button type="submit" class="btn btn-secondary">
+            <span>
+<i class="text-white fa fa-search"></i>
+            </span>
+        </button>
+    </div>
+</form>
         
         
        
@@ -243,6 +239,7 @@ echo tiny_url($url);
         
     </div>
   </div>
+
 
 
 </nav>
