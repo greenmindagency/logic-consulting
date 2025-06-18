@@ -223,21 +223,16 @@ if ( !empty($tags) && !is_wp_error($tags) ) {
 <style>
 
 
-body { <?php 
-if (is_front_page()) { // Check if it's the front page
-    $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
+body { <?php
+    $menu_color = get_field('menu_color', 2);
 
-    if ($menu_color == 'black') { 
-        echo 'padding-top: 70px;'; // Example for black background
-    } elseif ($menu_color == 'transparent') { 
-        echo ''; // Example for transparent background
-    } else { 
-        echo 'padding-top: 70px;'; // Default for white or other
-    } 
-} else { 
-    // For all other pages
-    echo 'padding-top: 70px;'; 
-}
+    if ($menu_color == 'black') {
+        echo 'padding-top: 70px;';
+    } elseif ($menu_color == 'transparent') {
+        echo '';
+    } else {
+        echo 'padding-top: 70px;';
+    }
 ?> font-family: "Montserrat", serif !important;}
 
 
@@ -727,6 +722,13 @@ blockquote p {margin:1rem 0}
 @media (min-width: 992px) {
   .navbar .dropdown:hover > .dropdown-menu {
     display: block;
+  }
+  .navbar .dropdown-menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .navbar .dropdown-menu > li {
+    width: 33.333%;
   }
 }
 
@@ -1309,10 +1311,9 @@ jQuery(document).ready(function($) {
 
 /** add the highlight effect for transperent nav bar */
 
-<?php if (is_front_page()) { 
-    $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
-
-    if ($menu_color == 'transparent') { 
+<?php
+    $menu_color = get_field('menu_color', 2);
+    if ($menu_color == 'transparent') :
 ?>
 
 
@@ -1381,10 +1382,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-<?php 
-    } // End of 'transparent' condition
-} // End of 'is_front_page' condition
-?>
+<?php endif; ?>
 
 /** add the highlight effect for transperent nav bar */
 
