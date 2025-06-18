@@ -224,20 +224,19 @@ if ( !empty($tags) && !is_wp_error($tags) ) {
 
 
 body { <?php 
-if (is_front_page()) { // Check if it's the front page
+
     $menu_color = get_field('menu_color'); // Retrieve the value of the 'menu_color' field
 
     if ($menu_color == 'black') { 
         echo 'padding-top: 70px;'; // Example for black background
     } elseif ($menu_color == 'transparent') { 
         echo ''; // Example for transparent background
+		} elseif ($menu_color == 'white') { 
+        echo 'padding-top: 70px;'; // Example for white background
     } else { 
-        echo 'padding-top: 70px;'; // Default for white or other
+        echo ''; // Default for white or other
     } 
-} else { 
-    // For all other pages
-    echo 'padding-top: 70px;'; 
-}
+ 
 ?> font-family: "Montserrat", serif !important;}
 
 
