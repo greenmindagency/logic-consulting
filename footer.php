@@ -714,6 +714,16 @@ blockquote p {margin:1rem 0}
     padding: 5px 5px;
 }
 
+@media (min-width: 992px) {
+  .dropdown-menu {
+    column-count: 3;
+    column-gap: 1rem;
+  }
+  .dropdown-menu li {
+    break-inside: avoid;
+  }
+}
+
 /* styling the dropdown */
 
 /* card styling */	
