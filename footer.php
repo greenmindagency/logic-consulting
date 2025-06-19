@@ -932,7 +932,32 @@ blockquote p {margin:1rem 0}
     cursor: pointer;
   }
 
-//* isotop *//  
+  /* Tagslist styling */
+  .tagslist-header .tagslist-line {
+    height: 2px;
+    background: var(--bs-secondary);
+  }
+  .read-more-link {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  .read-more-arrow {
+    width: 14px;
+    transition: transform 0.3s ease;
+  }
+  .animate-hover:hover .read-more-link {
+    transform: translateX(5px);
+  }
+  .animate-hover:hover .read-more-arrow {
+    transform: rotate(45deg);
+  }
+
+  .tagslist {
+    background-color: #fff;
+  }
+
+//* isotop *//
 	
 	
 

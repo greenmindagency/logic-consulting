@@ -1324,12 +1324,16 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
 
 
 <?php elseif( get_row_layout() == 'tagslist' ): ?>
-<div class="tagslist container-fluid bg-light py-spacer">
+<div class="tagslist container-fluid bg-white py-spacer">
     <div class="my-5 container">
         <div class="text-center">
-            <h3 class="fs-1 fw-bold">
-                <?php $title = get_sub_field('title'); if ($title) echo esc_html($title); ?>
-            </h3>
+            <div class="tagslist-header d-flex align-items-center justify-content-center mb-4">
+                <span class="tagslist-line flex-grow-1"></span>
+                <h3 class="fs-1 fw-bold mx-3 tagslist-title">
+                    <?php $title = get_sub_field('title'); if ($title) echo esc_html($title); ?>
+                </h3>
+                <span class="tagslist-line flex-grow-1"></span>
+            </div>
             <p class="mt-4 mb-5">
                 <?php $subtitle = get_sub_field('subtitle'); if ($subtitle) echo esc_html($subtitle); ?>
             </p>
@@ -1363,8 +1367,9 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
                             <?php if ($description): ?>
                                 <p class="card-text"><?php echo esc_html($description); ?></p>
                             <?php endif; ?>
-                            <a href="<?php echo esc_url($tag_link); ?>" class="btn btn-primary mt-3" aria-label="<?php echo esc_attr($cat->name); ?>">
-                                <i class="text-white fa-solid fa-arrow-right-long"></i>
+                            <a href="<?php echo esc_url($tag_link); ?>" class="btn btn-primary mt-3 read-more-link" aria-label="<?php echo esc_attr($cat->name); ?>">
+                                <span class="read-more-text me-1">Read more</span>
+                                <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" alt="Arrow"/>
                             </a>
                         </div>
                     </div>
