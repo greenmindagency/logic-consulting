@@ -711,24 +711,25 @@ blockquote p {margin:1rem 0}
     padding: 5px 5px;
 }
 
+/* 3-column layout for this specific dropdown only */
+    .dropdown-menu.show[aria-labelledby="navbarDropdown995"] {
+      display: flex !important;
+      flex-wrap: wrap;
+      width: 600px;
+      padding: 1rem;
+    }
 
+    .dropdown-menu.show[aria-labelledby="navbarDropdown995"] > .nav-item {
+      width: 33.33%;
+      padding: 0.25rem 1rem;
+      box-sizing: border-box;
+    }
 
-
-/* Only the first visible dropdown inside the navbar */
-.navbar-nav .dropdown-menu.show:first-of-type {
-  display: flex !important;
-  flex-wrap: wrap;
-  width: 600px;
-  padding: 1rem;
-}
-
-.navbar-nav .dropdown-menu.show:first-of-type > .nav-item {
-  width: 33.33%;
-  padding: 0.25rem 1rem;
-  box-sizing: border-box;
-}
-
-
+    .dropdown-menu.show[aria-labelledby="navbarDropdown995"] .dropdown-item {
+      white-space: normal;
+      display: block;
+      padding: 0.25rem 0;
+    }
 
 /* styling the dropdown */
 
