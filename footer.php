@@ -718,13 +718,15 @@ blockquote p {margin:1rem 0}
  /* Desktop only: Enable 3-column layout on large screens */
     @media (min-width: 992px) {
       .dropdown:hover .dropdown-menu[aria-labelledby="navbarDropdown995"] {
+		   column-count: 3;
+        column-gap: 2rem;
         display: block;
         display: flex !important;
         flex-wrap: wrap;
         width: 800px;
         padding: 1rem;
       }
-
+	  
       .dropdown-menu[aria-labelledby="navbarDropdown995"] .dropdown-item {
         white-space: normal;
         display: block;
