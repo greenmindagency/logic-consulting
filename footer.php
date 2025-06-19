@@ -708,7 +708,8 @@ blockquote p {margin:1rem 0}
 
 .dropdown-menu li {
     border-bottom: 1px solid #f4f4f4;  /* Applies border to all except the last item */
-    padding: 5px 5px;
+    padding: 5px;
+	margin: 10px;
 }
 
 /* 3-column layout for this specific dropdown only */
@@ -720,14 +721,15 @@ blockquote p {margin:1rem 0}
         display: block;
         display: flex !important;
         flex-wrap: wrap;
-        width: 600px;
+        width: 800px;
         padding: 1rem;
       }
 
       .dropdown-menu[aria-labelledby="navbarDropdown995"] .dropdown-item {
         white-space: normal;
         display: block;
-        padding: 0.25rem 0;
+        padding: .25rem;
+        margin: .25rem;
       }
 
       .dropdown-menu[aria-labelledby="navbarDropdown995"] .row {
