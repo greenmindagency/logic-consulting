@@ -719,7 +719,7 @@ blockquote p {margin:1rem 0}
     @media (min-width: 992px) {
       .dropdown:hover .dropdown-menu[aria-labelledby="navbarDropdown995"] {
 		column-count: 3;
-        column-gap: 2rem;
+        column-gap: 1rem;
         display: block;
         display: flex !important;
         flex-wrap: wrap;
