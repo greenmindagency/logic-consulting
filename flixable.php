@@ -470,7 +470,8 @@ $delay = 0; // Initialize delay counter for animation
       
 
 <?php elseif( get_row_layout() == 'pagecontent3' ): ?>
-<div class="pagecontent3 container-fluid bg-light">
+<div class="pagecontent3 container-fluid bg-light py-spacer">
+<div class="container">
 
 
 
@@ -478,8 +479,24 @@ $delay = 0; // Initialize delay counter for animation
  
  
  
-<div class="row justify-content-between d-flex">
-    <div class="col-md-6 mb-4 px-spacer py-spacer" data-aos="fade-right">
+<div class="row align-items-stretch">
+    <div class="col-md-4 p-0 mb-md-0 d-flex align-items-stretch order-md-1">
+        <div class="image-cover-container jarallax" data-jarallax data-speed="0.2">
+  <?php
+    $image = get_sub_field('image');
+    if (!empty($image)):
+        $image_url = $image['url'];
+        $alt = $image['alt'];
+  ?>
+      <img src="<?php echo $image_url; ?>"
+           alt="<?php echo $alt; ?>"
+           loading="lazy"
+           class="jarallax-img position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
+  <?php endif; ?>
+        </div>
+    </div>
+    <div class="col-md-1 order-md-2"></div>
+    <div class="col-md-7 mb-4 px-spacer order-md-3" data-aos="fade-right">
         <?php 
 $title = get_sub_field('title'); 
 $subtitle = get_sub_field('subtitle');
@@ -506,38 +523,13 @@ endif;
 <?php endif; ?>
 
     </div>
-       <div class="p-0 mb-md-0 col-md-6 d-flex align-items-stretch">
-   
-    
-	  <div class="image-cover-container">
-	
-	
-	
-
-  <?php 
-    $image = get_sub_field('image');
-    if (!empty($image)):
-        $image_url = $image['url'];
-        $alt = $image['alt'];
-  ?>
-      <img src="<?php echo $image_url; ?>" 
-           alt="<?php echo $alt; ?>" 
-           loading="lazy"
-           class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
-  <?php endif; ?>
-
-
-	</div>
-	
-	
-	
-	</div>
 	
 	
 	
 </div>
 
 </div> 
+</div>
 
   
 
