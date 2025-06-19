@@ -1442,7 +1442,7 @@ if (!isset($sliderCounter)) {
 }
 ?>
 
-<div id="slider<?php echo $sliderCounter; ?>" data-bs-pause="false" data-bs-interval="7000" class="lazy-load carousel keyboard touch slide d-flex align-items-center slider-height-<?php echo get_sub_field('height'); ?> p-0 mx-4" data-bs-ride="carousel">
+<div id="slider<?php echo $sliderCounter; ?>" data-bs-pause="false" data-bs-interval="7000" class="lazy-load carousel keyboard touch slide d-flex align-items-center slider-height-<?php echo get_sub_field('height'); ?> p-0" data-bs-ride="carousel">
 
   <!-- Indicators -->
   <div class="carousel-indicators">
