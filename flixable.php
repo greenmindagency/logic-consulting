@@ -1367,9 +1367,9 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
                             <?php if ($description): ?>
                                 <p class="card-text"><?php echo esc_html($description); ?></p>
                             <?php endif; ?>
-                            <a href="<?php echo esc_url($tag_link); ?>" class="btn btn-primary mt-3 read-more-link" aria-label="<?php echo esc_attr($cat->name); ?>">
+                            <a href="<?php echo esc_url($tag_link); ?>" class="mt-3 read-more-link" aria-label="<?php echo esc_attr($cat->name); ?>">
                                 <span class="read-more-text me-1">Read more</span>
-                                <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" alt="Arrow"/>
+                                <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" width="130" height="130" alt="Arrow"/>
                             </a>
                         </div>
                     </div>

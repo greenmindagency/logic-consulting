@@ -381,7 +381,7 @@ h1,h2,h3,h4,h5,h6 {font-weight:600 !important}
   
   
 
-.blog-post h3, .blog-post h4, .blog-post h5, .blog-post h6 {line-height: 3.4rem;  margin-top: 2rem; margin-bottom: .8rem;} 
+
   .imgwidthfull {width:100%}
   a.anchor { display: block; position: relative;  top: -70px; visibility: hidden}
   
