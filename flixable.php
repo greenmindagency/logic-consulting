@@ -1404,7 +1404,7 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
 
 <?php elseif( get_row_layout() == 'catslist' ): ?>
 <div class="catslist container-fluid">
-    <div class="my-5 container">
+    <div class="py-spacer container">
         <div class="text-center">
             <h3 class="fs-1 fw-bold">
                 <?php $title = get_sub_field('title'); if ($title) echo esc_html($title); ?>
