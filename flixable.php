@@ -1334,7 +1334,7 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
                 </h3>
                 <span class="tagslist-line flex-grow-1"></span>
             </div>
-            <p class="mt-4 mb-5">
+            <p class="h4 mt-4 mb-5">
                 <?php $subtitle = get_sub_field('subtitle'); if ($subtitle) echo esc_html($subtitle); ?>
             </p>
         </div>
