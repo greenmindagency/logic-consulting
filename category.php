@@ -2,22 +2,21 @@
 
         <!-- jarallax image -->
  
-    <div data-jarallax data-speed="0.2"  class="bg-secondary jarallax">
-      
-     <?php 
-	  $id = 'category_'.get_queried_object()->term_id;
-        $image = get_field('image', $id);
-		 $image_url = $image['sizes']['large'];
-		 
-		  $size = 'large';
-		  $width = $image['sizes'][ $size . '-width' ];
-            $height = $image['sizes'][ $size . '-height' ];
-			
-			
-        if( !empty($image) ): ?>
+    <?php
+        $id = 'category_' . get_queried_object()->term_id;
+        $use_video = get_field('use_video', $id);
+        $video     = get_field('video', $id);
+        $image     = get_field('image', $id);
+        $image_url = $image['sizes']['large'];
+        $size      = 'large';
+        $width     = $image['sizes'][ $size . '-width' ];
+        $height    = $image['sizes'][ $size . '-height' ];
+    ?>
 
-            <img class="lazyload jarallax-img" width="<?php echo $width; ?>" height="<?php echo $height; ?>" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo $image_url; ?>" alt="<?php echo $image['alt']; ?>" />
+    <div data-jarallax data-speed="0.2" class="bg-secondary jarallax<?php if ( $use_video && $video ) echo ' video-jarallax'; ?>"<?php if ( $use_video && $video ) echo ' data-jarallax-video="https://www.youtube.com/watch?v=' . esc_attr( $video ) . '"'; ?>>
 
+    <?php if ( ! ( $use_video && $video ) && ! empty( $image ) ) : ?>
+        <img class="lazyload jarallax-img" width="<?php echo $width; ?>" height="<?php echo $height; ?>" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="<?php echo $image_url; ?>" alt="<?php echo $image['alt']; ?>" />
     <?php endif; ?>
       
 

@@ -2,12 +2,21 @@
 
 <!-- jarallax image -->
  
-    <div data-jarallax data-speed="0.2"  class="bg-secondary jarallax">
-      
-        <?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "large" ); ?><?php $image_width = $image_data[1]; ?><?php $image_height = $image_data[2];  // get the featuered images width and height ?> 
-      
+    <?php
+        $term       = get_queried_object();
+        $use_video  = get_field( 'use_video', $term );
+        $video      = get_field( 'video', $term );
+        $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+        $image_width  = $image_data[1];
+        $image_height = $image_data[2];
+        $image        = get_field( 'image', $term );
+    ?>
 
-      <img loading="lazy" src="<?php $term = get_queried_object(); $image = get_field('image', $term);?><?php if( get_field('image', $term) ): ?><?php echo $image['sizes']['large']; ?><?php else: //if there not fire first image from the first post ?><?php the_post_thumbnail_url('large'); ?><?php endif; ?>" alt="<?php the_title(); ?>" class="jarallax-img" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>">
+    <div data-jarallax data-speed="0.2" class="bg-secondary jarallax<?php if ( $use_video && $video ) echo ' video-jarallax'; ?>"<?php if ( $use_video && $video ) echo ' data-jarallax-video="https://www.youtube.com/watch?v=' . esc_attr( $video ) . '"'; ?>>
+
+        <?php if ( ! ( $use_video && $video ) ) : ?>
+            <img loading="lazy" src="<?php if ( $image ) { echo $image['sizes']['large']; } else { the_post_thumbnail_url( 'large' ); } ?>" alt="<?php the_title(); ?>" class="jarallax-img" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>">
+        <?php endif; ?>
 	  
 	  
       
