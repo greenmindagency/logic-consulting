@@ -712,24 +712,53 @@ blockquote p {margin:1rem 0}
 }
 
 /* 3-column layout for this specific dropdown only */
-    .dropdown-menu.show[aria-labelledby="navbarDropdown995"] {
-      display: flex !important;
-      flex-wrap: wrap;
-      width: 600px;
-      padding: 1rem;
+
+
+ /* Desktop only: Enable 3-column layout on large screens */
+    @media (min-width: 992px) {
+      .dropdown:hover .dropdown-menu[aria-labelledby="navbarDropdown995"] {
+        display: block;
+        display: flex !important;
+        flex-wrap: wrap;
+        width: 600px;
+        padding: 1rem;
+      }
+
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .dropdown-item {
+        white-space: normal;
+        display: block;
+        padding: 0.25rem 0;
+      }
+
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .row {
+        width: 100%;
+        margin: 0;
+        display: flex;
+      }
+
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .col-md-4 {
+        padding: 0 1rem;
+      }
     }
 
-    .dropdown-menu.show[aria-labelledby="navbarDropdown995"] > .nav-item {
-      width: 33.33%;
-      padding: 0.25rem 1rem;
-      box-sizing: border-box;
+    /* Mobile: stack items normally */
+    @media (max-width: 991.98px) {
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .row {
+        display: block;
+      }
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .col-md-4,
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .col-6,
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .col-12 {
+        width: 100%;
+        padding: 0.25rem 1rem;
+      }
     }
 
-    .dropdown-menu.show[aria-labelledby="navbarDropdown995"] .dropdown-item {
-      white-space: normal;
-      display: block;
-      padding: 0.25rem 0;
-    }
+
+
+
+/* 3-column layout for this specific dropdown only */
+    
 
 /* styling the dropdown */
 
