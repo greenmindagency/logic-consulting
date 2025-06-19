@@ -480,8 +480,11 @@ $delay = 0; // Initialize delay counter for animation
  
  
 <div class="row align-items-stretch">
-    <div class="col-md-4 p-0 mb-md-0 d-flex align-items-stretch order-md-1">
-        <div class="image-cover-container jarallax" data-jarallax data-speed="0.2">
+
+    <div class="col-md-4 p-0 mb-md-0 order-md-1">
+        <div class="jarallax-content h-100">
+            <div class="jarallax h-100" data-jarallax data-speed="0.2">
+
   <?php
     $image = get_sub_field('image');
     if (!empty($image)):
@@ -491,8 +494,11 @@ $delay = 0; // Initialize delay counter for animation
       <img src="<?php echo $image_url; ?>"
            alt="<?php echo $alt; ?>"
            loading="lazy"
-           class="jarallax-img position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
+
+           class="jarallax-img">
   <?php endif; ?>
+            </div>
+
         </div>
     </div>
     <div class="col-md-1 order-md-2"></div>
