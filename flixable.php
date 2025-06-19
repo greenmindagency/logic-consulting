@@ -1405,11 +1405,15 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
 <?php elseif( get_row_layout() == 'catslist' ): ?>
 <div class="catslist container-fluid">
     <div class="py-spacer container">
-        <div class="text-center">
-            <h3 class="fs-1 fw-bold">
-                <?php $title = get_sub_field('title'); if ($title) echo esc_html($title); ?>
-            </h3>
-            <p class="mt-4 mb-5">
+<div class="text-center">
+            <div class="tagslist-header d-flex align-items-center justify-content-center mb-4">
+                <span class="tagslist-line flex-grow-1"></span>
+                <h3 class="fs-1 fw-bold mx-3 tagslist-title">
+                    <?php $title = get_sub_field('title'); if ($title) echo esc_html($title); ?>
+                </h3>
+                <span class="tagslist-line flex-grow-1"></span>
+            </div>
+            <p class="h4 mt-4 mb-5">
                 <?php $subtitle = get_sub_field('subtitle'); if ($subtitle) echo esc_html($subtitle); ?>
             </p>
         </div>
