@@ -943,7 +943,6 @@ blockquote p {margin:1rem 0}
     transition: transform 0.3s ease;
   }
   .read-more-arrow {
-    width: 14px;
     transition: transform 0.3s ease;
   }
   .animate-hover:hover .read-more-link {
