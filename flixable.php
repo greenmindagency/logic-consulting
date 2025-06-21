@@ -2071,10 +2071,10 @@ if ( is_single() ) {
 			
             <div class="col-md-7 my-5">
               <div class="p-4">
-                <a href="<?php echo $link; ?>">
+                <a class="text-secondary" href="<?php echo $link; ?>">
                   <p class="fs-2 fw-bold"><?php echo $title; ?></p>
                 </a>
-                <p><?php echo $description; ?></p>
+                <p class="text-black"><?php echo $description; ?></p>
                 <a href="<?php echo $link; ?>" class="btn btn-primary mt-3">
                   <i class="text-white fa-solid fa-arrow-right-long"></i>
                 </a>
