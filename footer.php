@@ -590,12 +590,18 @@ blockquote p {margin:1rem 0}
 }
 
 
-.postsrelatedtagslider .carousel-indicators .active, .testimonial .carousel-indicators .active, .articleimages  .carousel-indicators active, .pagecontent9 .carousel-indicators active {
-    background-color: black; /* Change the active indicator to black */
+.postsrelatedtagslider .carousel-indicators .active {
+    background-color: #fff; /* Use white for the active indicator */
+}
+.testimonial .carousel-indicators .active, .articleimages  .carousel-indicators active, .pagecontent9 .carousel-indicators active {
+    background-color: black; /* Retain black for other sliders */
 }
 
-.postsrelatedtagslider .carousel-indicators li, .testimonial .carousel-indicators li, .articleimages  .carousel-indicators li, .pagecontent9 .carousel-indicators li   {
-    background-color: rgba(0, 0, 0, 1); /* Change the inactive indicators to a semi-transparent black */
+.postsrelatedtagslider .carousel-indicators li {
+    background-color: rgba(255, 255, 255, 0.5); /* Light gray for inactive indicators */
+}
+.testimonial .carousel-indicators li, .articleimages  .carousel-indicators li, .pagecontent9 .carousel-indicators li   {
+    background-color: rgba(0, 0, 0, 1); /* Keep other indicators black */
 }
 	
 	.postsrelatedtagslider .carousel-item img, .testimonial .carousel-item img {

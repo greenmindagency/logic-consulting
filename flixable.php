@@ -1396,12 +1396,12 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
             <?php } wp_reset_query(); ?>
         </div>
         <!-- show selected categories -->
-		
-		
-		<?php if (get_sub_field('button')): ?>
-   
-	<a href="<?php $link = get_sub_field('link'); if ($link) echo esc_html($link); ?>" class="my-3 btn btn-primary"><?php $button = get_sub_field('button'); if ($button) echo esc_html($button); ?></a>
-	
+
+
+                <?php if (get_sub_field('button')): ?>
+                <div class="text-center">
+        <a href="<?php $link = get_sub_field('link'); if ($link) echo esc_html($link); ?>" class="my-3 btn btn-primary"><?php $button = get_sub_field('button'); if ($button) echo esc_html($button); ?></a>
+                </div>
 <?php endif; ?>
 
 
@@ -1970,10 +1970,10 @@ if ($addmore) { // Code to display if the addmore checkbox is checked
 <?php elseif( get_row_layout() == 'postsrelatedcatslider' ): ?>
 
 
-<div class="postsrelatedtagslider py-spacer bg-light">
+<div class="postsrelatedtagslider py-spacer bg-secondary">
 
 <div class="text-center">
-<h3 class="fs-1 fw-bold" ><?php $title = get_sub_field('title'); if ($title) echo esc_html($title); ?></h3>
+<h3 class="fs-1 fw-bold text-white" ><?php $title = get_sub_field('title'); if ($title) echo esc_html($title); ?></h3>
 <p class="mt-4 mb-3"><?php $subtitle = get_sub_field('subtitle'); if ($subtitle) echo esc_html($subtitle); ?></p>
 </div>  
 
