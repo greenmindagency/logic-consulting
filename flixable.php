@@ -522,6 +522,12 @@ if ($description):
 endif; 
 ?>
 
+		<?php if (get_sub_field('button')): ?>
+   
+	<a href="<?php $link = get_sub_field('link'); if ($link) echo esc_html($link); ?>" class="my-3 btn btn-primary"><?php $button = get_sub_field('button'); if ($button) echo esc_html($button); ?></a>
+	
+<?php endif; ?>
+
     </div>
 	
 	
