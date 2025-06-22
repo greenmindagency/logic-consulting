@@ -361,7 +361,10 @@ h1,h2,h3,h4,h5,h6 {font-weight:600 !important}
       a, .page-link, .text-primary, .dropdown .text-primary, .dropdown button  { color: <?php $Color = get_field('Color', 2); if ($Color) echo esc_html($Color); ?> !important;}
       
   .text-secondary {color: var(--bs-primary) !important}
-  
+    /* Ensure the slider titles use the primary color */
+  .postsrelatedtagslider .text-secondary {
+    color: var(--bs-secondary) !important;
+  }
 
   
   

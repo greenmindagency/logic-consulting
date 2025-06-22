@@ -1974,7 +1974,7 @@ if ($addmore) { // Code to display if the addmore checkbox is checked
 
 <div class="text-center">
 <h3 class="fs-1 fw-bold text-white" ><?php $title = get_sub_field('title'); if ($title) echo esc_html($title); ?></h3>
-<p class="mt-4 mb-3"><?php $subtitle = get_sub_field('subtitle'); if ($subtitle) echo esc_html($subtitle); ?></p>
+<p class="h4 mt-4 mb-3"><?php $subtitle = get_sub_field('subtitle'); if ($subtitle) echo esc_html($subtitle); ?></p>
 </div>  
 
 <?php
@@ -2075,8 +2075,9 @@ if ( is_single() ) {
                   <p class="fs-2 fw-bold"><?php echo $title; ?></p>
                 </a>
                 <p class="text-black"><?php echo $description; ?></p>
-                <a href="<?php echo $link; ?>" class="btn btn-primary mt-3">
-                  <i class="text-white fa-solid fa-arrow-right-long"></i>
+                <a href="<?php echo $link; ?>" class="mt-3">
+				Read More <i class="ms-1 fa-solid fa-caret-right"></i>
+                  
                 </a>
               </div>
             </div>
