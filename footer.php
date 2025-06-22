@@ -270,6 +270,7 @@ h1,h2,h3,h4,h5,h6 {font-weight:600 !important}
      
 .card-overlay img, .jarallax-img {opacity: 0.3} 
 .jarallax iframe {opacity: 0.8 }
+.hero-video .jarallax iframe {opacity: 0.3 }
 
 .video-jarallax-content {padding: 8rem 3rem}
 

@@ -1650,7 +1650,7 @@ if ( is_front_page() && ! is_home() ) {
                          </svg>'
                       );
                 ?>
-                    <a href="<?php echo get_permalink($post->ID); ?>">
+                    <a class="p-4" href="<?php echo get_permalink($post->ID); ?>">
                       <img
                         src="<?php echo $svgPlaceholder; ?>"
                         data-src="<?php echo get_the_post_thumbnail_url($post->ID, $imagesize); ?>"
@@ -1662,24 +1662,7 @@ if ( is_front_page() && ! is_home() ) {
                     </a>
                 <?php } ?>
 
-                <div class="card-body pb-4">
-                  <small class="lh-lg text-muted">
-                    <a href="<?php
-                      foreach((get_the_category()) as $category) {
-                          if($category->parent != 1) {
-                              echo get_category_link($category->cat_ID);
-                          }
-                      }
-                    ?>">
-                      <?php
-                        foreach((get_the_category()) as $category) {
-                            if($category->parent != 1) {
-                                echo $category->cat_name . ' ';
-                            }
-                        }
-                      ?>
-                    </a>
-                  </small>
+                <div class="card-body p-4">
 
                   <a href="<?php echo get_permalink($post->ID); ?>">
                     <?php if ( is_single() || is_page() || is_tag() ) : ?>
@@ -1689,20 +1672,15 @@ if ( is_front_page() && ! is_home() ) {
                     <?php endif; ?>
                   </a>
 
-                  <small class="font-italic text-muted">
-                    <?php echo get_the_time('jS', $post->ID); ?> <?php echo get_the_time('M, Y', $post->ID); ?>
-                  </small>
 
-                  <?php
-                    $description = get_field('description'); 
-                    if ($description):
-                      echo '<p class="my-3 card-text">' . esc_html($description) . '</p>';
-                    endif;
-                  ?>
 
-                  <a href="<?php echo get_permalink($post->ID); ?>" class="btn btn-primary mt-3" aria-label="<?php the_title(); ?>">
-                    <i class="text-white fa-solid fa-arrow-right-long"></i>
-                  </a>
+			  
+				  <a href="<?php echo get_permalink($post->ID); ?>" class="mt-3" aria-label="<?php the_title(); ?>">
+				Read More <i class="ms-1 fa-solid fa-caret-right"></i>
+                  
+                </a>
+				
+				
                 </div>
               </div><!-- /.card -->
             </div><!-- /.grid-item -->
@@ -1858,7 +1836,7 @@ foreach ($posts as $post) : ?>
                          </svg>'
                       );
                 ?>
-                    <a href="<?php echo get_permalink($post->ID); ?>">
+                    <a class="p-4" href="<?php echo get_permalink($post->ID); ?>">
                       <img
                         src="<?php echo $svgPlaceholder; ?>"
                         data-src="<?php echo get_the_post_thumbnail_url($post->ID, $imagesize); ?>"
@@ -1872,22 +1850,19 @@ foreach ($posts as $post) : ?>
             
       
       
-      <div class="card-body pb-4">
+      <div class="card-body p-4">
         
-        <small class="lh-lg text-muted"><a href="<?php foreach((get_the_category()) as $category) { if($category->parent != 1){  //load category?> <?php echo get_category_link($category->cat_ID) //echo the link?><?php } } ?>"><?php foreach((get_the_category()) as $category) { if($category->parent != 1){ echo $category->cat_name . ' '; } } //echo the first category name ?></a></small>
+
         
         <a href="<?php echo get_permalink($post->ID) // get the loop-item the link ?>"><p class="h3 fw-bold mt-2 text-dark card-title"><?php the_title(); ?></p></a>
         
-        <small class="font-italic text-muted"><?php echo get_the_time('jS', $post->ID); // get the loop-item the time ?> <?php echo get_the_time('M, Y', $post->ID); // get the loop-item the time  ?></small>
+
         
-        
-        	         <?php 
-$description = get_field('description'); 
-if ($description): ?>
-    <p class="my-3 card-text"><?php echo $description; ?></p>
-<?php endif; ?>
-        
-		<a href="<?php echo get_permalink($post->ID) ?>" class="btn btn-primary mt-3" aria-label="<?php the_title(); ?>"><i class="text-white fa-solid fa-arrow-right-long"></i></a>
+
+      	  <a href="<?php echo get_permalink($post->ID); ?>" class="mt-3" aria-label="<?php the_title(); ?>">
+				Read More <i class="ms-1 fa-solid fa-caret-right"></i>
+                  
+                </a>
 		
          </div>
     </div>
@@ -2641,7 +2616,7 @@ $title = get_field('title', get_option('page_on_front'));
    
    <div class="hero-video <?php while ( have_rows('column') ) : the_row(); $column_container = get_sub_field('column_container'); $column_width = get_sub_field('column_width'); ?><?php echo $column_container ?><?php echo $column_width ?> align-items-center p-0 <?php endwhile; ?>">
    
-    <div data-jarallax data-speed="0.2" class="jarallax video-jarallax bg-dark" data-jarallax-video="https://www.youtube.com/watch?v=<?php $video = get_sub_field('video'); if ($video) echo esc_html($video); ?>">
+    <div data-jarallax data-speed="0.2" class="jarallax video-jarallax bg-secondary" data-jarallax-video="https://www.youtube.com/watch?v=<?php $video = get_sub_field('video'); if ($video) echo esc_html($video); ?>">
     
 	
 	
