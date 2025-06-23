@@ -421,7 +421,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
                         }
 
                         if ( $this->mega_menu && 0 === $depth ) {
-                                $output .= "{$n}{$indent}<div class=\"dropdown-menu p-3\"><div class=\"row\">{$n}";
+                                $output .= "{$n}{$indent}<div class=\"dropdown-menu p-4\"><div class=\"row\">{$n}";
                         } else {
                                 $output .= "{$n}{$indent}<ul$class_names $labelledby>{$n}";
                         }
@@ -553,7 +553,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
                         if ( $this->mega_menu && $depth > 0 ) {
-                                $output .= $indent . '<div class="col-lg-4">';
+                                $output .= $indent . '<div class="col-lg-4 mb-3 mb-lg-0">';
                         } else {
                                 $output .= $indent . '<li ' . $id . $class_names . '>';
                         }
