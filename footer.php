@@ -738,10 +738,26 @@ blockquote p {margin:1rem 0}
 
 /* card styling */
 
-	/* CSS for hover dropdown on desktop */
+        /* Mega menu dropdown styling */
 @media (min-width: 992px) {
-  .navbar .dropdown:hover > .dropdown-menu {
+  .navbar .dropdown-menu {
+    left: 25%;
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
     display: block;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+  }
+
+  .navbar .dropdown-menu .row {
+    flex-wrap: nowrap;
+  }
+
+  .navbar .dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
   }
 }
 
