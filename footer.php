@@ -710,9 +710,20 @@ blockquote p {margin:1rem 0}
 /* styling the dropdown */
 
 .dropdown-menu {
-    border-radius: 0 !important;  /* Removes curvy edges, making them sharp */
-    box-shadow: none !important; /* Removes any shadow for a flat look */
-    border: 0px      /* Optional: Add a subtle border for definition */
+  border: 0;
+  border-radius: 0;
+}
+
+.dropdown-menu .dropdown-header {
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+.dropdown-menu .dropdown-item {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-radius: .25rem;
+  transition: background-color 0.2s ease-in-out;
 }
 
 
