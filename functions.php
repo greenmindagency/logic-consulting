@@ -352,7 +352,12 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 		 * @since 4.2.0
 		 * @var boolean
 		 */
-		private $has_schema = false;
+                private $has_schema = false;
+
+                /**
+                 * Flag to indicate we are rendering the Services mega menu.
+                 */
+                private $mega_menu = false;
 
 		/**
 		 * Ensure the items_wrap argument contains microdata.
@@ -376,7 +381,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 		 * @param int              $depth  Depth of menu item. Used for padding.
 		 * @param WP_Nav_Menu_Args $args   An object of wp_nav_menu() arguments.
 		 */
-		public function start_lvl( &$output, $depth = 0, $args = null ) {
+                public function start_lvl( &$output, $depth = 0, $args = null ) {
 			if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 				$t = '';
 				$n = '';
@@ -406,16 +411,39 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			 * Form a string for the labelledby attribute from the the latest
 			 * link with an id that was added to the $output.
 			 */
-			$labelledby = '';
-			// Find all links with an id in the output.
-			preg_match_all( '/(<a.*?id=\"|\')(.*?)\"|\'.*?>/im', $output, $matches );
-			// With pointer at end of array check if we got an ID match.
-			if ( end( $matches[2] ) ) {
-				// Build a string to use as aria-labelledby.
-				$labelledby = 'aria-labelledby="' . esc_attr( end( $matches[2] ) ) . '"';
-			}
-			$output .= "{$n}{$indent}<ul$class_names $labelledby>{$n}";
-		}
+                        $labelledby = '';
+                        // Find all links with an id in the output.
+                        preg_match_all( '/(<a.*?id=\"|\')(.*?)\"|\'.*?>/im', $output, $matches );
+                        // With pointer at end of array check if we got an ID match.
+                        if ( end( $matches[2] ) ) {
+                                // Build a string to use as aria-labelledby.
+                                $labelledby = 'aria-labelledby="' . esc_attr( end( $matches[2] ) ) . '"';
+                        }
+
+                        if ( $this->mega_menu && 0 === $depth ) {
+                                $output .= "{$n}{$indent}<div class=\"dropdown-menu p-3\" style=\"width: 600px;\"><div class=\"row\">{$n}";
+                        } else {
+                                $output .= "{$n}{$indent}<ul$class_names $labelledby>{$n}";
+                        }
+                }
+
+                public function end_lvl( &$output, $depth = 0, $args = null ) {
+                        if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+                                $t = '';
+                                $n = '';
+                        } else {
+                                $t = "\t";
+                                $n = "\n";
+                        }
+                        $indent = str_repeat( $t, $depth );
+
+                        if ( $this->mega_menu && 0 === $depth ) {
+                                $output .= "{$indent}</div></div>{$n}";
+                                $this->mega_menu = false;
+                        } else {
+                                $output .= "{$indent}</ul>{$n}";
+                        }
+                }
 
 		/**
 		 * Starts the element output.
@@ -497,7 +525,11 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 
 			// Add some additional default classes to the item.
 			$classes[] = 'menu-item-' . $item->ID;
-			$classes[] = 'nav-item';
+                        $classes[] = 'nav-item';
+
+                        if ( $this->has_children && 0 === $depth && intval( $item->ID ) === 995 ) {
+                                $this->mega_menu = true;
+                        }
 
 			// Allow filtering the classes.
 			$classes = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
@@ -520,7 +552,11 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-			$output .= $indent . '<li ' . $id . $class_names . '>';
+                        if ( $this->mega_menu && $depth > 0 ) {
+                                $output .= $indent . '<div class="col-lg-4">';
+                        } else {
+                                $output .= $indent . '<li ' . $id . $class_names . '>';
+                        }
 
 			// Initialize array for holding the $atts for the link item.
 			$atts           = array();
@@ -642,8 +678,25 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			$item_output .= isset( $args->after ) ? $args->after : '';
 
 			// END appending the internal item contents to the output.
-			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-		}
+                        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+                }
+
+                public function end_el( &$output, $item, $depth = 0, $args = null ) {
+                        if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+                                $t = '';
+                                $n = '';
+                        } else {
+                                $t = "\t";
+                                $n = "\n";
+                        }
+                        $indent = ( $depth ) ? str_repeat( $t, $depth ) : '';
+
+                        if ( $this->mega_menu && $depth > 0 ) {
+                                $output .= "{$indent}</div>{$n}";
+                        } else {
+                                $output .= "{$indent}</li>{$n}";
+                        }
+                }
 
 		/**
 		 * Menu fallback.
