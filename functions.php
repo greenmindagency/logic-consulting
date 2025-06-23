@@ -421,7 +421,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
                         }
 
                         if ( $this->mega_menu && 0 === $depth ) {
-                                $output .= "{$n}{$indent}<div class=\"dropdown-menu p-3\" style=\"width: 600px;\"><div class=\"row\">{$n}";
+                                $output .= "{$n}{$indent}<div class=\"dropdown-menu p-3\"><div class=\"row\">{$n}";
                         } else {
                                 $output .= "{$n}{$indent}<ul$class_names $labelledby>{$n}";
                         }
