@@ -725,7 +725,7 @@ blockquote p {margin:1rem 0}
 /* Mega menu styles for Services dropdown */
 @media (min-width: 992px) {
   .dropdown-menu[aria-labelledby="navbarDropdown995"] {
-    width: 600px;
+    width: 100%;
   }
 }
     
