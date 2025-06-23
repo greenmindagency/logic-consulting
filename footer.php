@@ -722,12 +722,56 @@ blockquote p {margin:1rem 0}
 	margin: 10px;
 }
 
-/* Mega menu styles for Services dropdown */
-@media (min-width: 992px) {
-  .dropdown-menu[aria-labelledby="navbarDropdown995"] {
-    width: 100%;
-  }
-}
+/* 3-column layout for this specific dropdown only */
+
+
+ /* Desktop only: Enable 3-column layout on large screens */
+    @media (min-width: 992px) {
+      .dropdown:hover .dropdown-menu[aria-labelledby="navbarDropdown995"] {
+		column-count: 3;
+        column-gap: 1rem;
+        display: block;
+        display: flex !important;
+        flex-wrap: wrap;
+        width: 800px;
+        padding: 1rem;
+      }
+	  
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .dropdown-item {
+        white-space: normal;
+        display: block;
+        padding: .25rem;
+        margin: .25rem;
+      }
+
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .row {
+        width: 100%;
+        margin: 0;
+        display: flex;
+      }
+
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .col-md-4 {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Mobile: stack items normally */
+    @media (max-width: 991.98px) {
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .row {
+        display: block;
+      }
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .col-md-4,
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .col-6,
+      .dropdown-menu[aria-labelledby="navbarDropdown995"] .col-12 {
+        width: 100%;
+        padding: 0.25rem 1rem;
+      }
+    }
+
+
+
+
+/* 3-column layout for this specific dropdown only */
     
 
 /* styling the dropdown */
