@@ -386,7 +386,11 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 			}
 			$indent = str_repeat( $t, $depth );
 			// Default class to add to the file.
-			$classes = array( 'dropdown-menu' );
+                        $classes = array( 'dropdown-menu' );
+                        if ( 0 === $depth ) {
+                                $classes[] = 'row';
+                                $classes[] = 'p-4';
+                        }
 			/**
 			 * Filters the CSS class(es) applied to a menu list element.
 			 *
@@ -495,9 +499,14 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) :
 				$classes[] = 'active';
 			}
 
-			// Add some additional default classes to the item.
-			$classes[] = 'menu-item-' . $item->ID;
-			$classes[] = 'nav-item';
+                        // Add some additional default classes to the item.
+                        $classes[] = 'menu-item-' . $item->ID;
+                        $classes[] = 'nav-item';
+                        if ( $depth > 0 ) {
+                                $classes[] = 'col-lg-4';
+                                $classes[] = 'mb-3';
+                                $classes[] = 'mb-lg-0';
+                        }
 
 			// Allow filtering the classes.
 			$classes = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
