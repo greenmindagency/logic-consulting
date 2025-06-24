@@ -710,9 +710,8 @@ blockquote p {margin:1rem 0}
 /* styling the dropdown */
 
 .dropdown-menu {
-    border-radius: 0 !important;  /* Removes curvy edges, making them sharp */
-    box-shadow: none !important; /* Removes any shadow for a flat look */
-    border: 0px      /* Optional: Add a subtle border for definition */
+    border-radius: 0; /* Match the flat style */
+    border: 0;        /* Remove borders */
 }
 
 
@@ -782,10 +781,26 @@ blockquote p {margin:1rem 0}
 
 /* card styling */
 
-	/* CSS for hover dropdown on desktop */
+        /* Desktop dropdown animation */
 @media (min-width: 992px) {
-  .navbar .dropdown:hover > .dropdown-menu {
+  .navbar .dropdown-menu {
+    left: 25%;
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
     display: block;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+  }
+
+  .navbar .dropdown-menu .row {
+    flex-wrap: nowrap;
+  }
+
+  .navbar .dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
   }
 }
 
