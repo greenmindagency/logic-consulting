@@ -734,7 +734,7 @@ blockquote p {margin:1rem 0}
   }
 }
 
-@media (min-width: 991.98px) {
+@media (max-width: 991.98px) {
   .navbar .dropdown-menu.row {
     display: block;
   }
