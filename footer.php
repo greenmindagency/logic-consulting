@@ -716,9 +716,8 @@ blockquote p {margin:1rem 0}
 
 
 .dropdown-menu li {
-    border-bottom: 1px solid #f4f4f4;  /* Applies border to all except the last item */
+    
     padding: 5px;
-	margin: 10px;
 }
 
 /* General mega menu layout */
@@ -727,10 +726,11 @@ blockquote p {margin:1rem 0}
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
-    width: 800px;
+    width: 1000px;
   }
   .navbar .dropdown-menu.row .dropdown-item {
     white-space: normal;
+	border-bottom: 1px solid #f4f4f4;  /* Applies border to all except the last item */
   }
 }
 
@@ -754,7 +754,7 @@ blockquote p {margin:1rem 0}
         /* Desktop dropdown animation */
 @media (min-width: 992px) {
   .navbar .dropdown-menu {
-    left: 25%;
+    left: -25%;
     transform: translateY(20px);
     opacity: 0;
     visibility: hidden;
