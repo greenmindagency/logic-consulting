@@ -734,16 +734,12 @@ blockquote p {margin:1rem 0}
   }
 }
 
-@media (max-width: 991.98px) {
+@media (min-width: 991.98px) {
   .navbar .dropdown-menu.row {
     display: block;
   }
 }
-@media (min-width: 992px) {
-  .navbar .dropdown-menu.row {
-    display: none;
-  }
-}
+
 
 
 
