@@ -739,7 +739,11 @@ blockquote p {margin:1rem 0}
     display: block;
   }
 }
-
+@media (min-width: 992px) {
+  .navbar .dropdown-menu.row {
+    display: none;
+  }
+}
 
 
 
