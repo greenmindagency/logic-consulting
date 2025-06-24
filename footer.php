@@ -709,10 +709,7 @@ blockquote p {margin:1rem 0}
 
 /* styling the dropdown */
 
-.dropdown-menu {
-    border-radius: 0; /* Match the flat style */
-    border: 0;        /* Remove borders */
-}
+
 
 
 .dropdown-menu li {
@@ -727,6 +724,9 @@ blockquote p {margin:1rem 0}
     flex-wrap: wrap;
     padding: 1rem;
     width: 1000px;
+	    border-radius: 0; /* Match the flat style */
+    border: 0;        /* Remove borders */
+	
   }
   .navbar .dropdown-menu.row .dropdown-item {
     white-space: normal;
