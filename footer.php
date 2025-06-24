@@ -720,6 +720,7 @@ blockquote p {margin:1rem 0}
 /* General mega menu layout */
 @media (min-width: 992px) {
   .navbar .dropdown-menu.row {
+	  display: block;
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
@@ -734,11 +735,7 @@ blockquote p {margin:1rem 0}
   }
 }
 
-@media (min-width: 991.98px) {
-  .navbar .dropdown-menu.row {
-    display: block;
-  }
-}
+
 
 
 
