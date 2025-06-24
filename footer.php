@@ -1411,13 +1411,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to switch navbar and logo styles on scroll or hover state
     function handleScroll() {
         if (window.scrollY > 50 || navbarHovered || collapse.classList.contains('show')) {
-            navbar.classList.add('shadow', 'bg-light');
+            navbar.classList.add('shadow', 'bg-white');
             navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
             if (logo.src !== blackLogoImg.src) {
                 logo.src = blackLogoImg.src;  // Switch to black logo without fade
             }
         } else {
-            navbar.classList.remove('shadow', 'bg-light');
+            navbar.classList.remove('shadow', 'bg-white');
             navbar.classList.add('text-white', 'bg-transparent');
             if (logo.src !== lightLogoImg.src) {
                 logo.src = lightLogoImg.src;  // Switch to light logo without fade
@@ -1428,7 +1428,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to handle hover effect
     function handleMouseEnter() {
         navbarHovered = true;
-        navbar.classList.add('shadow', 'bg-light');
+        navbar.classList.add('shadow', 'bg-white');
         navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
         if (logo.src !== blackLogoImg.src) {
             logo.src = blackLogoImg.src;  // Switch to black logo on hover without fade
@@ -1440,7 +1440,7 @@ document.addEventListener('DOMContentLoaded', function () {
         navbarHovered = false;
 
         if (window.scrollY <= 50 && !collapse.classList.contains('show')) {
-            navbar.classList.remove('shadow', 'bg-light');
+            navbar.classList.remove('shadow', 'bg-white');
             navbar.classList.add('text-white', 'bg-transparent');
             if (logo.src !== lightLogoImg.src) {
                 logo.src = lightLogoImg.src;  // Revert to light logo when not scrolled without fade
@@ -1467,7 +1467,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adjust styles when the mobile menu is opened or closed
     if (collapse) {
         collapse.addEventListener('show.bs.collapse', function () {
-            navbar.classList.add('shadow', 'bg-light');
+            navbar.classList.add('shadow', 'bg-white');
             navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
             if (logo.src !== blackLogoImg.src) {
                 logo.src = blackLogoImg.src;
@@ -1476,7 +1476,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         collapse.addEventListener('hide.bs.collapse', function () {
             if (window.scrollY <= 50) {
-                navbar.classList.remove('shadow', 'bg-light');
+                navbar.classList.remove('shadow', 'bg-white');
                 navbar.classList.add('text-white', 'bg-transparent');
                 if (logo.src !== lightLogoImg.src) {
                     logo.src = lightLogoImg.src;
