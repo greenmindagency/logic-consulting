@@ -735,20 +735,7 @@ blockquote p {margin:1rem 0}
   }
 }
 
-
-
-
-
-
-/* styling the dropdown */
-
-/* card styling */	
-
-.card, .card img {border: 0px !important; border-radius: 0px !important; }
-
-/* card styling */
-
-        /* Desktop dropdown animation */
+/* Desktop dropdown animation */
 @media (min-width: 992px) {
   .navbar .dropdown-menu {
     left: -25%;
@@ -781,6 +768,23 @@ blockquote p {margin:1rem 0}
   }
 }
 
+
+
+
+
+
+
+
+
+/* styling the dropdown */
+
+/* card styling */	
+
+.card, .card img {border: 0px !important; border-radius: 0px !important; }
+
+/* card styling */
+
+        
 
 .h-120 {height:108% !important}	
 
