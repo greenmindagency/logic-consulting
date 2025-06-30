@@ -750,7 +750,7 @@ blockquote p {margin:1rem 0}
         visibility: hidden;
         clip-path: inset(0 0 100% 0); /* Start clipped from the bottom (wipe slide up) */
         transition: opacity 0.4s ease-out, clip-path 0.4s ease-out, visibility 0s linear 0.4s;
-        display: block; /* Required for clip-path to work */
+        display: flex; /* Required for clip-path to work */
 		
   }
 
