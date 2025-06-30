@@ -1485,15 +1485,17 @@ if (!isset($sliderCounter)) {
     <?php endif; ?>
 
           <div class="col-md-4 mb-5">
-            <div class="px-4 pb-4 border h-120 animate-hover">
-              <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
-              <h4 class="fw-bold mt-2 lh-base">
-                <a href="<?php echo esc_url($tag_link); ?>"><?php echo esc_html($cat->name); ?></a>
-              </h4>
-              <?php if ($description): ?>
-                <p class="card-text"><?php echo esc_html($description); ?></p>
-              <?php endif; ?>
-              <a href="<?php echo esc_url($tag_link); ?>" class="mt-3 read-more-link" aria-label="<?php echo esc_attr($cat->name); ?>">
+            <div class="card card-fixed border px-4 pb-4 animate-hover h-120">
+              <div class="card-body text-center">
+                <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
+                <h4 class="fw-bold mt-2 lh-base">
+                  <a href="<?php echo esc_url($tag_link); ?>"><?php echo esc_html($cat->name); ?></a>
+                </h4>
+                <?php if ($description): ?>
+                  <p class="card-text mb-4"><?php echo esc_html($description); ?></p>
+                <?php endif; ?>
+              </div>
+              <a href="<?php echo esc_url($tag_link); ?>" class="read-more-link" aria-label="<?php echo esc_attr($cat->name); ?>">
                 <span class="read-more-text me-1">Read more</span>
                 <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" width="30" height="30" alt="Arrow"/>
               </a>
