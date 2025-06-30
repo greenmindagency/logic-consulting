@@ -1486,6 +1486,7 @@ if (!isset($sliderCounter)) {
 
           <div class="col-md-4 mb-5">
             <div class="card card-fixed border px-4 pb-4 animate-hover h-120">
+
               <div class="card-body">
                 <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
                 <h4 class="fw-bold mt-2 lh-base">
@@ -1681,13 +1682,13 @@ if ( is_front_page() && ! is_home() ) {
 
 
 			  
-				  <a href="<?php echo get_permalink($post->ID); ?>" class="mt-3" aria-label="<?php the_title(); ?>">
-				Read More <i class="ms-1 fa-solid fa-caret-right"></i>
-                  
-                </a>
 				
 				
                 </div>
+<a href="<?php echo get_permalink($post->ID); ?>" class="read-more-link" aria-label="<?php the_title(); ?>">
+  <span class="read-more-text me-1">Read more</span>
+  <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" width="30" height="30" alt="Arrow"/>
+</a>
               </div><!-- /.card -->
             </div><!-- /.grid-item -->
 
@@ -1865,12 +1866,12 @@ foreach ($posts as $post) : ?>
 
         
 
-      	  <a href="<?php echo get_permalink($post->ID); ?>" class="mt-3" aria-label="<?php the_title(); ?>">
-				Read More <i class="ms-1 fa-solid fa-caret-right"></i>
-                  
-                </a>
 		
          </div>
+<a href="<?php echo get_permalink($post->ID); ?>" class="read-more-link" aria-label="<?php the_title(); ?>">
+  <span class="read-more-text me-1">Read more</span>
+  <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" width="30" height="30" alt="Arrow"/>
+</a>
     </div>
   </div>
 
