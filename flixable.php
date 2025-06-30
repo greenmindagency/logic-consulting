@@ -1297,7 +1297,7 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
           </div>  
 		  
 <!-- show selected categories -->
-<div class="justify-content-center row">            
+<div class="row">            
 <?php $catss = get_sub_field('categories'); ?> 
 <?php foreach ($catss as $cat) { // let the loop understand the values you would like to echo  ?>
 
@@ -1343,7 +1343,7 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
         <?php $story_layout = get_sub_field('story_layout'); ?>
 
         <!-- show selected categories -->
-        <div class="justify-content-center row">
+        <div class="row">
             <?php
             $delay = 0; // Initialize delay counter for animation
             $catss = get_sub_field('tags');
