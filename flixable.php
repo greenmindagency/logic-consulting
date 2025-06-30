@@ -1379,7 +1379,7 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
                     <!-- Default Layout -->
                     <div class="col-md-4 mb-5" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
                         <div class="card card-fixed border px-4 pb-4 animate-hover h-120">
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
                                 <h4 class="fw-bold mt-2 lh-base">
                                     <a href="<?php echo esc_url($tag_link); ?>"><?php echo esc_html($cat->name); ?></a>
@@ -1486,7 +1486,7 @@ if (!isset($sliderCounter)) {
 
           <div class="col-md-4 mb-5">
             <div class="card card-fixed border px-4 pb-4 animate-hover h-120">
-              <div class="card-body text-center">
+              <div class="card-body">
                 <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
                 <h4 class="fw-bold mt-2 lh-base">
                   <a href="<?php echo esc_url($tag_link); ?>"><?php echo esc_html($cat->name); ?></a>
