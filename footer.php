@@ -717,36 +717,73 @@ blockquote p {margin:1rem 0}
     padding: 5px;
 }
 
-/* General mega menu layout */
-@media (min-width: 992px) {
-  .navbar .dropdown-menu.row {
-	  display: block;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem;
-    width: 1000px;
-	    border-radius: 0; /* Match the flat style */
-    border: 0;        /* Remove borders */
-	
-  }
-  .navbar .dropdown-menu.row .dropdown-item {
-    white-space: normal;
-	border-bottom: 1px solid #f4f4f4;  /* Applies border to all except the last item */
-  }
-}
+
+
+
+
+
+
 
 /* Desktop dropdown animation */
 @media (min-width: 992px) {
+
+
+
   .navbar .dropdown-menu {
-    left: -25%;
-    transform: translateY(20px);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    display: block;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+    /* Position dropdown menu to span full width */
+	position:fixed !important ;
+	
+
+  width: 80%; /* or the computed width if you prefer fixed size */
+  
+  margin: auto; /* Centers the element within the fixed constraints */
+	
+        left: 0;
+        right: 0;
+        border: 0px;
+		
+        margin-top: 0; /* Align directly under the navbar */
+        border-radius: 0; /* Remove rounded corners for full width appearance */
+
+        /* Initial state for wipe slide animation */
+        opacity: 0;
+        visibility: hidden;
+        clip-path: inset(0 0 100% 0); /* Start clipped from the bottom (wipe slide up) */
+        transition: opacity 0.4s ease-out, clip-path 0.4s ease-out, visibility 0s linear 0.4s;
+        display: block; /* Required for clip-path to work */
+		
   }
 
+
+/* When the dropdown is hovered, animate to visible state */
+      .navbar .dropdown:hover > .dropdown-menu {
+	    width: 80%; /* or the computed width if you prefer fixed size */
+		
+		
+		margin: auto; /* Centers the element within the fixed constraints */
+  
+  
+        opacity: 1;
+        visibility: visible;
+        clip-path: inset(0 0 0 0); /* Fully revealed */
+        transition: opacity 0.4s ease-out, clip-path 0.4s ease-out; /* No delay for visibility on hover */
+      }
+	
+
+
+
+
+.dropdown-menu::after {
+  content: ""; /* Required for pseudo-elements */
+  display: block; /* Makes the pseudo-element a block-level element */
+  position: absolute; /* Position relative to the closest positioned ancestor, which is the element itself because it's fixed */
+  bottom: 0; /* Position at the bottom of the parent */
+  left: 0; /* Position at the left edge of the parent */
+  right: 0; /* Position at the right edge of the parent to span full width */
+  height: 3px; /* Set the height of the bar */
+  background-color: #0000005e; /* Set the color of the bar */
+}	
+	  
   .navbar .dropdown-menu .row {
     flex-wrap: nowrap;
   }
@@ -760,13 +797,16 @@ blockquote p {margin:1rem 0}
 
 /* CSS for toggling dropdown on mobile */
 @media (max-width: 991px) {
-  .navbar .dropdown-menu {
-    display: none;
-  }
   .navbar .dropdown.show .dropdown-menu {
     display: block;
   }
 }
+
+
+
+
+
+
 
 
 
