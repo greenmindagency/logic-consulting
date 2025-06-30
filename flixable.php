@@ -1358,40 +1358,36 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
 
                 <?php if ($story_layout): ?>
                     <!-- Alternate Layout -->
-                    <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
-                        <div class="card card-fixed border px-4 pb-4 animate-hover h-100">
-                            <div class="card-body">
-                                <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
-                                <h4 class="fw-bold mt-2 lh-base">
-                                    <a href="<?php echo esc_url($tag_link); ?>"><?php echo esc_html($cat->name); ?></a>
-                                </h4>
-                                <?php if ($description): ?>
-                                    <p class="card-text"><?php echo esc_html($description); ?></p>
-                                <?php endif; ?>
-                            </div>
-                            <a href="<?php echo esc_url($tag_link); ?>" class="read-more-link" aria-label="<?php echo esc_attr($cat->name); ?>">
+                    <div class="col-md-4 mb-5" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
+                        <div class="px-4 pb-4 border h-120 animate-hover card-fixed">
+                            <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
+                            <h4 class="fw-bold mt-2 lh-base">
+                                <a href="<?php echo esc_url($tag_link); ?>"><?php echo esc_html($cat->name); ?></a>
+                            </h4>
+                            <?php if ($description): ?>
+                                <p class="card-text"><?php echo esc_html($description); ?></p>
+                            <?php endif; ?>
+                            <a href="<?php echo esc_url($tag_link); ?>" class="mt-3 read-more-link" aria-label="<?php echo esc_attr($cat->name); ?>">
                                 <span class="read-more-text me-1">Read more</span>
-                                <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" width="30" height="30" alt="Arrow" />
+                                <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" width="30" height="30" alt="Arrow"/>
                             </a>
                         </div>
                     </div>
                 <?php else: ?>
                     <!-- Default Layout -->
-                    <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
-                        <div class="card card-fixed border px-4 pb-4 animate-hover h-100">
-                            <div class="card-body text-center">
+                    <div class="mb-4 col-sm-6 col-md-6 col-lg-6" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
+                        <div class="row">
+                            <div class="text-center col-3">
                                 <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
-                                <h4 class="fw-bold mt-2 lh-base">
+                            </div>
+                            <div class="col-9">
+                                <h3 class="fw-bold m-0 mb-2">
                                     <a href="<?php echo esc_url($tag_link); ?>"><?php echo esc_html($cat->name); ?></a>
-                                </h4>
+                                </h3>
                                 <?php if ($description): ?>
-                                    <p class="card-text mb-4"><?php echo esc_html($description); ?></p>
+                                    <p class="card-text mb-5"><?php echo esc_html($description); ?></p>
                                 <?php endif; ?>
                             </div>
-                            <a href="<?php echo esc_url($tag_link); ?>" class="read-more-link" aria-label="<?php echo esc_attr($cat->name); ?>">
-                                <span class="read-more-text me-1">Read more</span>
-                                <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" width="30" height="30" alt="Arrow" />
-                            </a>
                         </div>
                     </div>
                 <?php endif; ?>
