@@ -1686,8 +1686,8 @@ if ( is_front_page() && ! is_home() ) {
 				
                 </div>
 <a href="<?php echo get_permalink($post->ID); ?>" class="read-more-link" aria-label="<?php the_title(); ?>">
-  <span class="read-more-text me-1">Read more</span>
-  <img class="read-more-arrow" src="https://logic-consulting.com/logicconsulting/wp-content/uploads/2025/06/LOGIC-Consulting-Arrow.png" width="30" height="30" alt="Arrow"/>
+  <span class="read-more-text mx-4 my-4">Read more</span>
+  <i class="fa-solid fa-angles-right"></i>
 </a>
               </div><!-- /.card -->
             </div><!-- /.grid-item -->
