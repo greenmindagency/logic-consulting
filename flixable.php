@@ -1358,8 +1358,8 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
 
                 <?php if ($story_layout): ?>
                     <!-- Alternate Layout -->
-                    <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
-                        <div class="card card-fixed border px-4 pb-4 animate-hover h-100">
+                    <div class="col-md-4 mb-5" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
+                        <div class="card card-fixed border px-4 pb-4 animate-hover h-120">
                             <div class="card-body">
                                 <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
                                 <h4 class="fw-bold mt-2 lh-base">
@@ -1377,8 +1377,8 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
                     </div>
                 <?php else: ?>
                     <!-- Default Layout -->
-                    <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
-                        <div class="card card-fixed border px-4 pb-4 animate-hover h-100">
+                    <div class="col-md-4 mb-5" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
+                        <div class="card card-fixed border px-4 pb-4 animate-hover h-120">
                             <div class="card-body text-center">
                                 <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
                                 <h4 class="fw-bold mt-2 lh-base">
