@@ -803,12 +803,27 @@ blockquote p {margin:1rem 0}
 }
 
 
+/* Bootstrap Cards Fixed Buttons */
 
 
 
 
+    .card-fixed {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .card-fixed .card-body {
+      flex: 1 1 auto;
+    }
+    .card-fixed .read-more-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+    }
 
 
+/* Bootstrap Cards Fixed Buttons */
 
 
 

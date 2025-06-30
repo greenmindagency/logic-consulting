@@ -765,7 +765,7 @@ $subtitle = get_sub_field('subtitle');
 
             <?php $button = get_sub_field('button'); ?>
             <?php if ($button): ?>
-                <a href="<?php $link = get_sub_field('link'); if ($link) echo esc_html($link); ?>" class="my-3 btn <?php $colored = get_sub_field('colored'); if ( $colored && is_array($colored) && in_array('colored', $colored) ) { ?>bg-dark text-light<?php } else { ?>btn-primary<?php } ?> mx-1"><?php $button = get_sub_field('button'); if ($button) echo esc_html($button); ?></a>
+                <a href="<?php $link = get_sub_field('link'); if ($link) echo esc_html($link); ?>" class="my-3 btn <?php $colored = get_sub_field('colored'); if ( $colored && is_array($colored) && in_array('colored', $colored) ) { ?>bg-primary text-light<?php } else { ?>btn-primary<?php } ?> mx-1"><?php $button = get_sub_field('button'); if ($button) echo esc_html($button); ?></a>
             <?php endif; ?>
 
 
@@ -1359,7 +1359,7 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
                 <?php if ($story_layout): ?>
                     <!-- Alternate Layout -->
                     <div class="col-md-4 mb-5" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
-                        <div class="px-4 pb-4 border h-120 animate-hover">
+                        <div class="px-4 pb-4 border h-120 animate-hover card-fixed">
                             <i class="me-2 fa-3x fa fa-<?php echo esc_attr($icon); ?>"></i>
                             <h4 class="fw-bold mt-2 lh-base">
                                 <a href="<?php echo esc_url($tag_link); ?>"><?php echo esc_html($cat->name); ?></a>
