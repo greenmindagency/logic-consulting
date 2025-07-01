@@ -497,8 +497,8 @@ $delay = 0; // Initialize delay counter for animation
                 </svg>'
             );
         ?>
-        <div class="image-cover-container w-100 h-100">
-            <img class="lazyload img-full image-fill image-cover img-fluid"
+        <div class="image-cover-container">
+            <img class="lazyload img-full image-fill image-cover"
                  src="<?php echo $svg_placeholder; ?>"
                  data-src="<?php echo $image_url; ?>"
                  alt="<?php echo $image['alt']; ?>"
