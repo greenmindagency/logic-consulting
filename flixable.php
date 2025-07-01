@@ -1642,7 +1642,7 @@ if ( is_front_page() && ! is_home() ) {
 
             <!-- Single Post Layout -->
             <div class="grid-item mb-4 col-md-<?php echo intval(12 / $columns); ?>">
-              <div class="shadow card">
+              <div class="border border-primary card">
 
                 <?php
                   if (has_post_thumbnail()) {
@@ -1829,7 +1829,7 @@ if ($posts)  { // define if to start counting
 foreach ($posts as $post) : ?>
 
 <div class="pb-4 col-md-<?php echo intval(12 / $columns); ?> d-flex" data-aos="fade-up" data-aos-delay="<?php echo $delay; ?>">
-    <div class="shadow card h-100 w-100 d-flex flex-column">
+    <div class="border border-primary card h-100 w-100 d-flex flex-column">
       <?php
                   if (has_post_thumbnail()) {
                       $image_data   = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), $imagesize);
