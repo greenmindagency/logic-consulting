@@ -481,7 +481,7 @@ $delay = 0; // Initialize delay counter for animation
  
 <div class="row align-items-stretch">
 
-    <div class="col-md-4 p-0 mb-md-0 order-md-1">
+    <div class="col-md-5 p-0 mb-md-0 order-md-1">
         <div class="jarallax-content h-100">
             <div class="jarallax h-100" data-jarallax data-speed="0.2">
 
@@ -502,7 +502,7 @@ $delay = 0; // Initialize delay counter for animation
         </div>
     </div>
     <div class="col-md-1 order-md-2"></div>
-    <div class="col-md-7 mb-4 px-spacer order-md-3" data-aos="fade-right">
+    <div class="col-md-6 mb-4 px-spacer order-md-3" data-aos="fade-right">
         <?php 
 $title = get_sub_field('title'); 
 $subtitle = get_sub_field('subtitle');
