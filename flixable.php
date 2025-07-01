@@ -481,7 +481,7 @@ $delay = 0; // Initialize delay counter for animation
  
 <div class="row align-items-stretch">
 
-    <div class="col-md-5 p-0 mb-md-0 order-md-1">
+    <div class="col-md-5 p-0 mb-md-0 order-md-1 d-flex align-items-stretch">
         <?php
         $image = get_sub_field('image');
         if (!empty($image)):
@@ -497,12 +497,14 @@ $delay = 0; // Initialize delay counter for animation
                 </svg>'
             );
         ?>
-            <img class="lazyload img-full image-fill img-fluid"
+        <div class="image-cover-container w-100 h-100">
+            <img class="lazyload img-full image-fill image-cover img-fluid"
                  src="<?php echo $svg_placeholder; ?>"
                  data-src="<?php echo $image_url; ?>"
                  alt="<?php echo $image['alt']; ?>"
                  width="<?php echo $width; ?>"
                  height="<?php echo $height; ?>">
+        </div>
         <?php endif; ?>
     </div>
     <div class="col-md-1 order-md-2"></div>
