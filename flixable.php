@@ -482,24 +482,28 @@ $delay = 0; // Initialize delay counter for animation
 <div class="row align-items-stretch">
 
     <div class="col-md-5 p-0 mb-md-0 order-md-1">
-        <div class="jarallax-content h-100">
-            <div class="jarallax h-100" data-jarallax data-speed="0.2">
+        <?php
+        $image = get_sub_field('image');
+        if (!empty($image)):
+            $size = 'large';
+            $image_url = $image['sizes'][$size];
+            $width = $image['sizes'][$size . '-width'];
+            $height = $image['sizes'][$size . '-height'];
 
-  <?php
-    $image = get_sub_field('image');
-    if (!empty($image)):
-        $image_url = $image['url'];
-        $alt = $image['alt'];
-  ?>
-      <img src="<?php echo $image_url; ?>"
-           alt="<?php echo $alt; ?>"
-           loading="lazy"
-
-           class="jarallax-img">
-  <?php endif; ?>
-            </div>
-
-        </div>
+            // Generate SVG placeholder
+            $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
+                '<svg xmlns="http://www.w3.org/2000/svg" width="' . $width . '" height="' . $height . '" viewBox="0 0 ' . $width . ' ' . $height . '">
+                    <rect width="100%" height="100%" fill="#f8f9fb"/>
+                </svg>'
+            );
+        ?>
+            <img class="lazyload img-full image-fill img-fluid"
+                 src="<?php echo $svg_placeholder; ?>"
+                 data-src="<?php echo $image_url; ?>"
+                 alt="<?php echo $image['alt']; ?>"
+                 width="<?php echo $width; ?>"
+                 height="<?php echo $height; ?>">
+        <?php endif; ?>
     </div>
     <div class="col-md-1 order-md-2"></div>
     <div class="col-md-6 mb-4 px-spacer order-md-3" data-aos="fade-right">
