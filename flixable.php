@@ -1686,7 +1686,7 @@ if ( is_front_page() && ! is_home() ) {
 				
                 </div>
 <a href="<?php echo get_permalink($post->ID); ?>" class="read-more-link" aria-label="<?php the_title(); ?>">
-  <span class="read-more-text m-4">Read more</span>
+  <span class="read-more-text my-4 ms-4 me-2">Read more</span>
   <i class="fa-solid fa-angles-right"></i>
 </a>
               </div><!-- /.card -->
@@ -1869,7 +1869,7 @@ foreach ($posts as $post) : ?>
 		
          </div>
 <a href="<?php echo get_permalink($post->ID); ?>" class="read-more-link" aria-label="<?php the_title(); ?>">
-  <span class="read-more-text m-4">Read more</span>
+  <span class="read-more-text my-4 ms-4 me-2">Read more</span>
   <i class="fa-solid fa-angles-right"></i>
 </a>
     </div>
