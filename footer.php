@@ -334,7 +334,7 @@ h1,h2,h3,h4,h5,h6 {font-weight:600 !important}
     body .bg-dark {background-color:#000 !important}
   .navbar-light  {background-color:#fff !important}
   
-  .dropdown-item.active, .dropdown-item:active { color: #fff  !important; background-color: <?php $Color = get_field('Color', 2); if ($Color) echo esc_html($Color); ?> !important; }
+  .dropdown-item.hover, .dropdown-item.active { color: #fff  !important; background-color: <?php $Color = get_field('Color', 2); if ($Color) echo esc_html($Color); ?> !important; }
   
    /*nav coloring*/
   .bg-dark .nav-link, .bg-transparent .nav-link { color:#fff!important }
