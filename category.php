@@ -34,7 +34,12 @@
     }
     ?>
 </h1>
-<p class="mt-4 lead">Consulting Service</p>
+<?php
+$cat_id    = get_queried_object_id();
+$ancestors = get_ancestors( $cat_id, 'category' );
+if ( 1 === $cat_id || in_array( 1, $ancestors, true ) ) : ?>
+    <p class="mt-4 lead">Consulting Service</p>
+<?php endif; ?>
     <h2 class="fw-bold card-title display-4 my-3"><?php single_cat_title(); ?></h2>
     <p class="lead card-text">
     <?php 
