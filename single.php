@@ -2,12 +2,8 @@
 
      <!-- jarallax image -->
  
-    <div data-jarallax data-speed="0.2"  class="bg-secondary jarallax">
+    <div class="bg-secondary">
       
-        <?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "large" ); ?><?php $image_width = $image_data[1]; ?><?php $image_height = $image_data[2];  // get the featuered images width and height ?> 
-      
-      
-      <img loading="lazy" src="<?php the_post_thumbnail_url('large'); ?>" class="jarallax-img" alt="<?php the_title(); ?>" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>">
       
 	  <div class="container py-spacer">
 	  <div class="row">
