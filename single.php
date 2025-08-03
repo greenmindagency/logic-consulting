@@ -8,7 +8,7 @@
 	  <div class="container py-spacer">
 	  <div class="row">
     <div class="col-12 py-5 text-white">
-    <h1 class="fw-bold card-title display-5"><?php the_title(); ?></h1>
+    <h1 class="fw-bold card-title display-4"><?php the_title(); ?></h1>
 	
 	
 	   <?php 
