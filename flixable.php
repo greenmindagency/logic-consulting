@@ -1293,6 +1293,168 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
 
 
 
+<?php elseif( get_row_layout() == 'contacts' ): ?>
+
+  <section class="contacts py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Info -->
+        <div class="col-md-6 mb-4">
+          
+<?php if ($pretitle = get_sub_field('pretitle')): ?>
+  <p class="small"><?php echo nl2br(esc_html($pretitle)); ?></p>
+<?php endif; ?>
+
+<?php if ($title = get_sub_field('title')): ?>
+  <h3 class="mb-4 fs-1 fw-bold"><?php echo esc_html($title); ?></h3>
+<?php endif; ?>
+
+<?php if ($subtitle = get_sub_field('subtitle')): ?>
+  <?php echo wp_kses_post($subtitle); ?>
+<?php endif; ?>
+
+
+
+
+          <?php if (have_rows('map_locations', 2)): ?>
+		  
+		    <div class="row">
+			
+  <?php while (have_rows('map_locations', 2)): the_row(); ?>
+  
+
+<?php
+$locations = get_field('map_locations', 2);
+if ($locations):
+  $col_class = count($locations) === 1 ? 'col-md-12' : 'col-md-5 me-4';
+?>
+
+
+  
+    <div class="<?php echo $col_class; ?>">
+  
+      <?php if ($country = get_sub_field('country')): ?>
+      <h4 class="my-3 fw-bold">
+	  
+        <?php echo esc_attr($country); ?>
+      </h4>
+    <?php endif; ?>
+	
+	 
+    <?php if ($telephone = get_sub_field('telephone', false)): ?>
+      <p>
+        <i class="me-2 fa-solid fa-square-phone"></i> <a href="tel:+<?php echo wp_kses_post($telephone); ?>"> +<?php echo wp_kses_post($telephone); ?></a>
+      </p>
+    <?php endif; ?>
+
+    <?php if ($street_address = get_sub_field('street_address', false)): ?>
+      <p>
+        <i class="me-2 fa-solid fa-location-dot"></i> <a href="<?php if ($url = get_sub_field('url')) echo esc_attr($url); ?>" target="blank"><?php echo wp_kses_post($street_address); ?></a>
+      </p>
+    <?php endif; ?>
+
+	</div>
+	
+<?php endif; ?>
+	
+  <?php endwhile; ?>
+  
+  	</div>
+<?php endif; ?>
+
+
+  <?php if (have_rows('working_hours', 2)): ?>
+<?php while (have_rows('working_hours', 2)): the_row(); ?>
+
+
+      <div class="mt-4">
+        <?php if ($title = get_sub_field('title', false)): ?>
+		
+		<p class="my-3 h5 fw-bold"><?php echo wp_kses_post($title); ?></p>
+
+		<?php endif; ?>
+
+
+       <?php if ($working_hours = get_sub_field('working_hours', false)): ?>
+		
+		<p class="mb-2"><i class="fa-solid fa-clock me-2"></i> <?php echo wp_kses_post($working_hours); ?></p>
+
+		<?php endif; ?>
+	  
+	  
+      </div>
+  
+	  
+  <?php endwhile; ?>
+  
+ 
+<?php endif; ?>
+		  
+		  
+        </div>
+
+        <!-- Contact Form -->
+		
+		<?php $formcode = get_sub_field('formcode'); ?>
+		<div class="col-md-6">
+            
+			
+                <div class="row justify-content-center">
+				
+				
+				
+				
+				
+				<?php if ($formcode): ?>
+				
+				<div class="col-md-10">
+				
+				
+				<?php $form_title = get_sub_field('form_title'); ?>
+				<?php if ($form_title): ?>
+				
+				<h3 class="lh-sm mb-5 fs-1 fw-bold" ><?php $form_title = get_sub_field('form_title'); if ($form_title) echo esc_html($form_title); ?></h3>
+				
+				<?php endif; ?>
+				
+				
+                    <?php echo do_shortcode($formcode); ?>
+					 </div>
+					 
+					 <?php endif; ?>
+					 
+					 
+                </div>
+                    
+							
+
+				
+
+
+
+				
+					
+					
+			
+		
+		
+			</div>
+		
+		
+        
+
+		
+		
+		
+		
+      </div>
+    </div>
+  </section>
+
+
+
+
+
 <?php elseif( get_row_layout() == 'categorylist' ): ?>
 <div class="categorylist container-fluid bg-light py-spacer">
 <div class="py-spacer container">
