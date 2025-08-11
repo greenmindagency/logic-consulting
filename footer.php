@@ -123,14 +123,17 @@ echo esc_html($page_title);
   <div class="my-2">
     
   
-      <?php if ($country = get_sub_field('country')): ?>
+      
+	
+	
+	       <?php if ($country = get_sub_field('country')): ?>
       <p class="mt-4 mb-2 fw-bold">
 	  
-        <?php echo esc_attr($country); ?>
+        <?php echo esc_attr($country); ?> - <?php if ($city = get_sub_field('city')): ?><?php echo esc_attr($city); ?><?php endif; ?>
       </p>
     <?php endif; ?>
 	
-	 
+	
     <?php if ($telephone = get_sub_field('telephone', false)): ?>
       
         <i class="me-2 fa-solid fa-square-phone"></i> <a href="tel:+<?php echo wp_kses_post($telephone); ?>"> +<?php echo wp_kses_post($telephone); ?></a>
