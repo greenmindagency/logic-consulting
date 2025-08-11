@@ -833,7 +833,10 @@ $subtitle = get_sub_field('subtitle');
   <div class="ratio ratio-16x9">
        
      
-     <iframe class="lazyload" src="<?php $iframecode = get_sub_field('iframecode'); if ($iframecode) echo esc_html($iframecode); ?>" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+     <div class="map"></div>
+	 
+	 
+	 
 </div>
 
  
