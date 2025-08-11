@@ -7,13 +7,28 @@
 
       
  
-    <footer class="bg-dark  px-4 py-5">
-    <div class="row">
-      <div class="col-md-3 mb-5">
+    <footer class="bg-dark py-5">
+	
+	
+	
+		<?php 
+    $footer_image = get_field('footer_image', 2);
+    if (!empty($footer_image)):
+      $image_url = $footer_image['sizes']['large'];
+      $size = 'large';
+      $width = $footer_image['sizes'][$size . '-width'];
+      $height = $footer_image['sizes'][$size . '-height'];
+  ?>
+    <img loading="lazy" class="img-fluid footer-bg-image" width="<?php echo $width; ?>" height="<?php echo $height; ?>" src="<?php echo $image_url; ?>" alt="<?php echo esc_attr($footer_image['alt']); ?>" />
+  <?php endif; ?>
+  
+  
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-4 mb-5">
 	  
 	  
 	  
-
         
 <?php 
 $logolight = get_field('logo_light' , 2);
@@ -43,9 +58,8 @@ if (!empty($image) && isset($image['sizes'][$size])) {
 				
 				
 				<img  loading="lazy" class="logo d-inline-block align-top mb-3" src="<?php echo $logolight['sizes']['medium']; ?>" width="<?php echo esc_attr($new_width); ?>" height="<?php echo esc_attr($fixed_height); ?>" title="<?php bloginfo('name'); ?> Logo" alt="<?php bloginfo('name'); ?> Logo" />
-				 
+				
         
-
 		
 		<p class="text-light font-weight-bold"><?php $title = get_field('title', 2); if ($title) echo esc_html($title); ?></p>
 		
@@ -82,76 +96,125 @@ $link = get_sub_field('link');
 		
       </div>
 	  
-	  
-	  
-	  
-	  <div class="col-md-9 mb-5">
+ 
+	  <div class="col-md-4 mb-5 text-white">
 	  
 	  		
-<?php
-$page_id = 320; // Specify the page ID where the ACF field is located - get the contact us details from the contact us page
 
-// Get the flexible content field
-$pagecontent1 = get_field('body', $page_id); // Assuming 'body' is the correct field name based on your structure
-
-if ($pagecontent1 && is_array($pagecontent1)) {
-    // Get the first layout
-    $first_layout = $pagecontent1[0];
+        
     
-    if ($first_layout['acf_fc_layout'] == 'pagecontent1') { // Replace 'pagecontent1' with your specific layout name if necessary
-        $title = $first_layout['title'];
-        $subtitle = $first_layout['subtitle'];
-        $spacertop = $first_layout['spacertop'];
-        $spacerbottom = $first_layout['spacerbottom'];
-        $columns = $first_layout['columns'];
-        ?>
-        
-        
-            <div>
-                
-                    <div class="bold h5 pb-2 text-white"><?php echo esc_html($title); ?></div>
+<div class="h5 fw-bold pb-2"><?php
+$page_id = 320;
+$page_title = get_the_title($page_id);
+echo esc_html($page_title);
+?></div>
                     
                  
                 
                     
-                        <?php foreach ($columns as $column): ?>
-                            <div class="text-light mb-4">
-                                <div class="fw-bolder text-light">
-								 <?php if (!empty($column['icon'])): ?>
-                                        <i class="me-3 <?php echo esc_attr($column['icon']); ?>"></i>
-                                    <?php endif; ?>
-									
-                                    <?php echo esc_html($column['title']); ?>
-                                </div>
-								
-                              <div>   <?php echo wp_kses_post($column['description']); ?> </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-               
-            
-       
-        
-        <?php
-    }
-} else {
-    echo 'No content found for body on page ID ' . $page_id;
-}
-?>
+					
+					
+<?php if (have_rows('map_locations', 2)): ?>
+<?php while (have_rows('map_locations', 2)): the_row(); ?>
+  
+
+
+
+  <div class="my-2">
+    
+  
+      <?php if ($country = get_sub_field('country')): ?>
+      <p class="mt-4 mb-2 fw-bold">
+	  
+        <?php echo esc_attr($country); ?>
+      </p>
+    <?php endif; ?>
+	
+	 
+    <?php if ($telephone = get_sub_field('telephone', false)): ?>
+      
+        <i class="me-2 fa-solid fa-square-phone"></i> <a href="tel:+<?php echo wp_kses_post($telephone); ?>"> +<?php echo wp_kses_post($telephone); ?></a>
+    
+    <?php endif; ?>
+
+    <?php if ($street_address = get_sub_field('street_address', false)): ?>
+      
+      <br>  <i class="me-2 fa-solid fa-location-dot"></i> <a href="<?php if ($url = get_sub_field('url')) echo esc_attr($url); ?>" target="blank"><?php echo wp_kses_post($street_address); ?></a>
+      
+    <?php endif; ?>
+
+	</div>
+
+	
+  <?php endwhile; ?>
+  
+  
+<?php endif; ?>
+
+		
+
+
+
+
+		
+	  <?php if (have_rows('working_hours', 2)): ?>
+<?php while (have_rows('working_hours', 2)): the_row(); ?>
+
+
+      <div class="mt-5">
+        <?php if ($title = get_sub_field('title', false)): ?>
+		
+		<p class="my-3 h5 fw-bold"><?php echo wp_kses_post($title); ?></p>
+
+		<?php endif; ?>
+
+
+       <?php if ($working_hours = get_sub_field('working_hours', false)): ?>
+		
+		<p class="mb-2"><i class="fa-solid fa-clock me-2"></i> <?php echo wp_kses_post($working_hours); ?></p>
+
+		<?php endif; ?>
+	  
+	  
+      </div>
+  
+	  
+  <?php endwhile; ?>
+  
+ 
+<?php endif; ?>				
+					
+					
+					
+					
+                       
 
 	  </div>
 	  
-	  
-	  
-	  
+
+      <div class="col-md-4 col-sm-4">
+        <?php
+        wp_nav_menu( array(
+            'theme_location' => 'footer-menu',
+            'depth'          => 2,
+            'container'      => false,
+            'items_wrap'     => '%3$s',
+            'fallback_cb'    => false,
+            'walker'         => new Footer_Menu_Walker(),
+        ) );
+        ?>
+      </div>
 
     </div>
+	
+	</div>
 	
 	  <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="fas fa-chevron-up"></i></a>
 	
 	
   </footer>
+  
   
   
   
@@ -1029,6 +1092,7 @@ blockquote p {margin:1rem 0}
 
 <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script> 
 
+
     <script>
       
 // carousel_homepage lazy load
@@ -1133,28 +1197,18 @@ $.each($(".img"), function() {
 });
 
 
-// greenmind some custome scripts for contact form and google conversions
+// Greenmind custom script for Contact Form 7 and Google conversions
 
-  $(document).ready(function() { 
+document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('wpcf7mailsent', function (event) {
+    // Optional: Check for a specific form ID if you have multiple forms
+    if (event.detail.contactFormId == 229) { 
+      window.location.href = "/contacts-thank-you";
+      console.log("conversion count");
+    }
+  }, false);
+});
 
-  function showpanel() {     
-
-		$('#wpcf7-f229-o1').find('.sent').each(function(el) {
-	
-	 $('.inputs-wrapper').hide();
-	 
-	 window.location.replace("contacts-thank-you");
-	
-    console.log("conversion count");
-}); 
-	
-	$('.wpcf7-mail-sent-ok').addClass('alertok');
-		
- }
- 
- setTimeout(showpanel, 10)
-
-}); 
 
 
 
@@ -1240,7 +1294,9 @@ $(document).ready(function() {
   
   
              
-    /****** progress-bar	******/	
+/*--------------------------------------------------------------
+# Progress Bar
+--------------------------------------------------------------*/
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -1258,9 +1314,9 @@ document.addEventListener('DOMContentLoaded', function() {
       progressBar.style.width = widthPercentage + '%';
     });
   });
-
-/****** progress-bar	******/	
-
+/*--------------------------------------------------------------
+# Progress Bar
+--------------------------------------------------------------*/
 
 // Adds spacing classes for white background content
 
@@ -1328,7 +1384,9 @@ document.addEventListener("DOMContentLoaded", () => {
       
 /** Dynamic slider  Animations */
 
-/** Isotope Filtering with Active Button Styling */
+/*--------------------------------------------------------------
+# Isotope Filtering with Active Button Styling
+--------------------------------------------------------------*/
 jQuery(document).ready(function($) {
     var $container = $('.posts-container').isotope({
         itemSelector: '.post-item',
@@ -1391,7 +1449,9 @@ jQuery(document).ready(function($) {
   //insure masonry 
   
   
-/** Isotope Filtering with Active Button Styling */
+/*--------------------------------------------------------------
+# Isotope Filtering with Active Button Styling
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Transparent Navbar Highlight
@@ -1429,13 +1489,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to switch navbar and logo styles on scroll or hover state
     function handleScroll() {
         if (window.scrollY > 50 || navbarHovered || collapse.classList.contains('show')) {
-            navbar.classList.add('shadow', 'bg-white');
+            navbar.classList.add('shadow', 'bg-light');
             navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
             if (logo.src !== blackLogoImg.src) {
                 logo.src = blackLogoImg.src;  // Switch to black logo without fade
             }
         } else {
-            navbar.classList.remove('shadow', 'bg-white');
+            navbar.classList.remove('shadow', 'bg-light');
             navbar.classList.add('text-white', 'bg-transparent');
             if (logo.src !== lightLogoImg.src) {
                 logo.src = lightLogoImg.src;  // Switch to light logo without fade
@@ -1446,7 +1506,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to handle hover effect
     function handleMouseEnter() {
         navbarHovered = true;
-        navbar.classList.add('shadow', 'bg-white');
+        navbar.classList.add('shadow', 'bg-light');
         navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
         if (logo.src !== blackLogoImg.src) {
             logo.src = blackLogoImg.src;  // Switch to black logo on hover without fade
@@ -1458,7 +1518,7 @@ document.addEventListener('DOMContentLoaded', function () {
         navbarHovered = false;
 
         if (window.scrollY <= 50 && !collapse.classList.contains('show')) {
-            navbar.classList.remove('shadow', 'bg-white');
+            navbar.classList.remove('shadow', 'bg-light');
             navbar.classList.add('text-white', 'bg-transparent');
             if (logo.src !== lightLogoImg.src) {
                 logo.src = lightLogoImg.src;  // Revert to light logo when not scrolled without fade
@@ -1485,7 +1545,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adjust styles when the mobile menu is opened or closed
     if (collapse) {
         collapse.addEventListener('show.bs.collapse', function () {
-            navbar.classList.add('shadow', 'bg-white');
+            navbar.classList.add('shadow', 'bg-light');
             navbar.classList.remove('bg-dark', 'text-white', 'bg-transparent');
             if (logo.src !== blackLogoImg.src) {
                 logo.src = blackLogoImg.src;
@@ -1494,7 +1554,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         collapse.addEventListener('hide.bs.collapse', function () {
             if (window.scrollY <= 50) {
-                navbar.classList.remove('shadow', 'bg-white');
+                navbar.classList.remove('shadow', 'bg-light');
                 navbar.classList.add('text-white', 'bg-transparent');
                 if (logo.src !== lightLogoImg.src) {
                     logo.src = lightLogoImg.src;
@@ -1522,7 +1582,9 @@ document.addEventListener('DOMContentLoaded', function () {
 --------------------------------------------------------------*/
 
 
-/** submenu items open when hover */
+/*--------------------------------------------------------------
+# Submenu Hover Open
+--------------------------------------------------------------*/
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -1548,28 +1610,169 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-/** submenu items open when hover */
+/*--------------------------------------------------------------
+# Submenu Hover Open
+--------------------------------------------------------------*/
 		
 
 
-/** AOS (Animate On Scroll) */
+/*--------------------------------------------------------------
+# AOS (Animate On Scroll)
+--------------------------------------------------------------*/
 
 AOS.init({
+  
   once: true,   // To prevent repeated animations
+
 });
 
-/** AOS (Animate On Scroll) */
-		
-		
-/** Lenis */
+/*--------------------------------------------------------------
+# AOS (Animate On Scroll)
+--------------------------------------------------------------*/
+	
+
+
+/*--------------------------------------------------------------
+# Lenis
+--------------------------------------------------------------*/
 
 // Initialize Lenis
 const lenis = new Lenis({
   autoRaf: true,
 });
 
-/** Lenis */		
-	
+/*--------------------------------------------------------------
+# Lenis
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+# Google Maps
+--------------------------------------------------------------*/
+
+
+(g => {
+      var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window;
+      b = b[c] || (b[c] = {});
+      var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => {
+        await (a = m.createElement("script"));
+        e.set("libraries", [...r] + "");
+        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+        e.set("callback", c + ".maps." + q);
+        a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+        d[q] = f;
+        a.onerror = () => {
+          h = n(Error(p + " could not load."));
+          console.error("Google Maps script failed to load.");
+        };
+        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+        m.head.append(a);
+      }));
+      d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n));
+    })({ key: "AIzaSyDCcN7YSVH-DXRBtmOTLTskLvN2LBAee9o", v: "weekly" });
+
+    async function initMap() {
+      try {
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+        const maps = document.querySelectorAll('.map');
+
+        if (!maps.length) {
+  return;
+}
+
+
+
+
+<?php
+$locations = get_field('map_locations', 2);
+$total = is_array($locations) ? count($locations) : 0;
+$sum_lat = 0;
+$sum_lng = 0;
+?>
+
+maps.forEach(mapElement => {
+  const locations = [
+    <?php if ($total):
+      $i = 0;
+      foreach ($locations as $row):
+        $i++;
+        $lat = (float) $row['lat'];
+        $lng = (float) $row['lng'];
+        $country = $row['country'] ?? '';
+        $url = $row['url'] ?? '';
+
+        $sum_lat += $lat;
+        $sum_lng += $lng;
+    ?>
+    {
+      position: { lat: <?php echo $lat; ?>, lng: <?php echo $lng; ?> },
+      icon: "https://cdn-icons-png.flaticon.com/512/484/484167.png",
+      url: "<?php echo esc_url($url); ?>",
+      title: "<?php echo esc_js($country); ?>"
+    }<?php echo $i < $total ? ',' : ''; ?>
+    <?php endforeach; endif; ?>
+  ];
+
+  const mapCenter = {
+    lat: <?php echo $total ? round($sum_lat / $total, 6) : 24.7136; ?>,
+    lng: <?php echo $total ? round($sum_lng / $total, 6) : 46.6753; ?>
+  };
+
+  const map = new google.maps.Map(mapElement, {
+    center: mapCenter,
+    zoom: 5,
+    mapId: "DEMO_MAP_ID"
+  });
+
+  locations.forEach(loc => {
+    const iconImage = document.createElement("img");
+    iconImage.src = loc.icon;
+    iconImage.style.width = "40px";
+    iconImage.style.height = "40px";
+    iconImage.alt = loc.title || "Map Marker";
+
+    const marker = new google.maps.marker.AdvancedMarkerElement({
+      map,
+      position: loc.position,
+      content: iconImage,
+      title: loc.title
+    });
+
+    marker.addListener("gmp-click", () => {
+      if (loc.url) {
+        window.open(loc.url, '_blank');
+      }
+    });
+  });
+});
+
+
+
+
+
+      } catch (error) {
+        console.error("Error in initMap:", error);
+      }
+    }
+
+    function waitForGoogleMaps(retries = 10, delay = 500) {
+      if (typeof google !== 'undefined' && google.maps && google.maps.importLibrary) {
+        initMap();
+      } else if (retries > 0) {
+        setTimeout(() => waitForGoogleMaps(retries - 1, delay), delay);
+      } else {
+        console.error("Google Maps API failed to load after multiple retries.");
+      }
+    }
+
+    window.addEventListener("load", waitForGoogleMaps);
+
+/*--------------------------------------------------------------
+# Google Maps
+--------------------------------------------------------------*/
 
 
     </script>
