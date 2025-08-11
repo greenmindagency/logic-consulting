@@ -969,6 +969,31 @@ blockquote p {margin:1rem 0}
 .btn, .form-control {border-radius: 0 !important; }
 	
 
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+  
+  footer {position: relative; overflow: hidden;}
+  
+  .footer-bg-image {
+      position: absolute;
+      top: 2rem;
+      right: -7rem;
+      width: 40rem;
+      opacity: 0.1;
+      object-fit: contain;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+  
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+
+
 /** isotop **/
 
   .filter-sidebar {
