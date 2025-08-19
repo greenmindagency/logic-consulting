@@ -285,7 +285,7 @@ a:hover {text-decoration: none;}
 a:active {text-decoration: none;} 
 h1,h2,h3,h4,h5,h6 {font-weight:600 !important} 
      
-.text-secondary	 { color: var(--bs-secondary) !important;}
+.text-secondary	i { color: var(--bs-primary) !important;}
 	 
 .card-overlay img, .jarallax-img {opacity: 0.3} 
 .jarallax iframe {opacity: 0.8 }
