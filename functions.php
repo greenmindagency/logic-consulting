@@ -1029,6 +1029,33 @@ function fix_category_rewrite_rules($category_rewrite) {
     return $category_rewrite;
 }
 
+// Remove tag base
+add_filter('tag_link', 'fix_tag_link', 10, 2);
+function fix_tag_link($taglink, $tag_id) {
+    $tag = get_tag($tag_id);
+    if (is_wp_error($tag)) {
+        return $tag;
+    }
+
+    $tag_slug = $tag->slug;
+    $taglink = trailingslashit(get_option('home')) . user_trailingslashit($tag_slug, 'post_tag');
+    return $taglink;
+}
+
+// Update tag rewrite rules
+add_filter('tag_rewrite_rules', 'fix_tag_rewrite_rules');
+function fix_tag_rewrite_rules($tag_rewrite) {
+    $tag_rewrite = array();
+    $tags = get_tags(array('hide_empty' => false));
+
+    foreach ($tags as $tag) {
+        $tag_slug = $tag->slug;
+        $tag_rewrite['(' . $tag_slug . ')/?$'] = 'index.php?tag=' . $tag_slug;
+    }
+
+    return $tag_rewrite;
+}
+
 // Flush rewrite rules on theme activation
 add_action('init', function() {
     flush_rewrite_rules();
