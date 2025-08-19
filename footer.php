@@ -285,6 +285,8 @@ a:hover {text-decoration: none;}
 a:active {text-decoration: none;} 
 h1,h2,h3,h4,h5,h6 {font-weight:600 !important} 
      
+.text-secondary	 {var(--bs-secoundary);}
+	 
 .card-overlay img, .jarallax-img {opacity: 0.3} 
 .jarallax iframe {opacity: 0.8 }
 .hero-video .jarallax iframe {opacity: 0.3 }
@@ -996,7 +998,9 @@ blockquote p {margin:1rem 0}
 # Footer
 --------------------------------------------------------------*/
 
-
+ .dropdown-menu a {color: var(--bs-secondary) !important;}
+ 
+ 
 /** isotop **/
 
   .filter-sidebar {

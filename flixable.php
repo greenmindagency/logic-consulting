@@ -427,7 +427,7 @@ if( have_rows('columns') ): ?>
  
 
 <?php elseif( get_row_layout() == 'pagecontent2' ): ?>
-<div class="pagecontent2 container-fluid bg-secondary py-5">
+<div class="pagecontent2 container-fluid bg-secondary py-5 text-secondary">
 <div class="my-5 container">
           
 		  
