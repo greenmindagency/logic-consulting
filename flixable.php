@@ -1153,8 +1153,8 @@ if ($pagecontent9_cards):
           <div class="carousel-item <?php if ($group_index == 0) echo 'active'; ?>">
             <div class="row g-4 mb-5 pb-5 px-3">
               <?php foreach ($card_group as $card): ?>
-                <div class="col-md-4">
-                  <div class="hover-box bg-secondary text-white shadow-sm parallax-card">
+                <div class="col-md-4 d-flex">
+                  <div class="hover-box bg-secondary text-white shadow-sm parallax-card h-100 w-100 d-flex flex-column">
                     <?php 
                       $image = $card['top_image'];
                       if (!empty($image)):
@@ -1227,8 +1227,8 @@ $svg_placeholder = 'data:image/svg+xml;base64,' . base64_encode(
   <?php else: ?>
     <div class="row g-4 px-3">
       <?php foreach ($pagecontent9_cards as $card): ?>
-        <div class="col-md-4">
-          <div class="hover-box bg-secondary text-white shadow-sm parallax-card">
+        <div class="col-md-4 d-flex">
+          <div class="hover-box bg-secondary text-white shadow-sm parallax-card h-100 w-100 d-flex flex-column">
 		  
 		  
             <?php 
