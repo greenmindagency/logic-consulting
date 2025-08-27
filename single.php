@@ -14,28 +14,10 @@
 	   <?php 
 $description = get_field('description'); 
 if ($description): ?>
-    <p class="lead my-4"><?php echo $description; ?></p>
+    <h2 class="lead my-4"><?php echo $description; ?></h2>
 <?php endif; ?>
 
-
-
-<h2 class="mt-5 fw-bold h5 text-uppercase">
-    <?php 
-    foreach((get_the_category()) as $category) { 
-        if($category->parent != 1) { // load category
-            $category_link = get_category_link($category->term_id);
-            echo '<a href="' . esc_url($category_link) . '" class="text-decoration-none text-white">'
-                . esc_html($category->cat_name) . 
-                '</a> ';
-        } 
-    } 
-    ?>
-    <i class="ms-3 fa-solid fa-arrow-right-long"></i>
-</h2>
-
-
-	
-    
+  
     
     </div>
 
