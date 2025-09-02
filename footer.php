@@ -366,7 +366,7 @@ h1,h2,h3,h4,h5,h6 {font-weight:600 !important}
 
        
        /*coloring*/
-      body .bg-primary, body .btn-outline-primary:hover, body .btn-primary { color: #fff !important; background-color: <?php $Color = get_field('Color', 2); if ($Color) echo esc_html($Color); ?> !important; border-color: <?php $darkercolor = get_field('darker-color', 2); if ($darkercolor) echo esc_html($darkercolor); ?> !important;}
+      body .bg-primary, body .btn-outline-primary:hover, body .btn-primary { color: #fff !important; background-color: <?php $Color = get_field('Color', 2); if ($Color) echo esc_html($Color); ?> !important; border-color: white !important;}
        .btn-primary:hover, .btn-primary:active, .btn-primary:focus { color: #fff !important; background-color: <?php $darkercolor = get_field('darker-color', 2); if ($darkercolor) echo esc_html($darkercolor); ?> !important; border-color: <?php $darkercolor = get_field('darker-color', 2); if ($darkercolor) echo esc_html($darkercolor); ?> !important; box-shadow:none !important}
        .btn-outline-primary {border-color: <?php $Color = get_field('Color', 2); if ($Color) echo esc_html($Color); ?> !important; color:<?php $darkercolor = get_field('darker-color', 2); if ($darkercolor) echo esc_html($darkercolor); ?> !important}
 	   
@@ -974,7 +974,6 @@ blockquote p {margin:1rem 0}
 .btn, .form-control {border-radius: 0 !important; }
 	
 
-.border-white {border-color:white !important}
 
 /*--------------------------------------------------------------
 # Footer
