@@ -1044,14 +1044,17 @@ if (!empty($image)): ?>
     <?php while (have_rows('accordion')): the_row();
       $accordionitemtitle = get_sub_field('accordionitemtitle');
       $accordionitembody = get_sub_field('accordionitembody');
+      $has_body = !empty($accordionitembody);
     ?>
       <div class="mb-3">
-        <p class="m-0 text-start bg-primary text-black shadow-none border border-white rounded-0 px-3 py-2">
+        <p class="m-0 text-start bg-primary text-black shadow-none border border-white rounded-0 px-3 py-2<?php if ($has_body) echo ' border-bottom-0'; ?>">
           <?php echo $accordionitemtitle; ?>
         </p>
+        <?php if ($has_body): ?>
         <div class="bg-primary border border-white border-top-0 px-3 py-2">
           <?php echo $accordionitembody; ?>
         </div>
+        <?php endif; ?>
       </div>
     <?php endwhile; ?>
   </div>
