@@ -1040,44 +1040,20 @@ if (!empty($image)): ?>
 
 
 <?php if (have_rows('accordion')): ?>
-  <div class="accordion my-4" id="<?php echo "acc-pagecontent8" . ++$a; ?>">
-
-    <?php 
-    $b = 0; 
-    $isFirst = true; 
-
-    while (have_rows('accordion')): the_row(); 
+  <div class="my-4">
+    <?php while (have_rows('accordion')): the_row();
       $accordionitemtitle = get_sub_field('accordionitemtitle');
       $accordionitembody = get_sub_field('accordionitembody');
     ?>
-
-      <div class="accordion-item border-0">
-        <h4 class="m-0 p-0 accordion-header" id="<?php echo "heading" . ++$b; ?>">
-          <button class="accordion-button text-start bg-primary text-black shadow-none border border-white rounded-0 px-3 py-2 <?php echo $isFirst ? '' : 'collapsed'; ?>" 
-                  type="button" 
-                  data-bs-toggle="collapse" 
-                  data-bs-target="#collapse<?php echo $b; ?>" 
-                  aria-expanded="<?php echo $isFirst ? 'true' : 'false'; ?>" 
-                  aria-controls="collapse<?php echo $b; ?>">
-            <i class="fa-solid fa-chevron-down me-3"></i>
-            <strong><?php echo $accordionitemtitle; ?></strong>
-          </button>
-        </h4>
-        <div id="<?php echo "collapse" . $b; ?>" 
-             class="accordion-collapse collapse <?php echo $isFirst ? 'show' : ''; ?>" 
-             aria-labelledby="<?php echo "heading" . $b; ?>" 
-             data-bs-parent="#<?php echo "acc-pagecontent8" . $a; ?>">
-          <div class="accordion-body bg-primary">
-            <?php echo $accordionitembody; ?>
-          </div>
+      <div class="mb-3">
+        <p class="m-0 text-start bg-primary text-black shadow-none border border-white rounded-0 px-3 py-2">
+          <?php echo $accordionitemtitle; ?>
+        </p>
+        <div class="bg-primary border border-white border-top-0 px-3 py-2">
+          <?php echo $accordionitembody; ?>
         </div>
       </div>
-
-    <?php 
-    $isFirst = false;
-    endwhile; 
-    ?>
-
+    <?php endwhile; ?>
   </div>
 <?php endif; ?>
 
