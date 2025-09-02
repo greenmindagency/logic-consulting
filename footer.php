@@ -974,7 +974,7 @@ blockquote p {margin:1rem 0}
 .btn, .form-control {border-radius: 0 !important; }
 	
 
-.border-white {border-color:white}
+.border-white {border-color:white !important}
 
 /*--------------------------------------------------------------
 # Footer
